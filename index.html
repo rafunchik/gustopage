@@ -56,6 +56,98 @@
     <script src="https://static.tildacdn.com/js/tilda-events-1.0.min.js" charset="utf-8" async
         onerror="this.loaderr='y';"></script>
     <!-- JavaScript and analytics scripts remain unchanged -->
+    <style>
+        :root {
+            --color-bg: #fff;
+            --color-text: #000;
+            --color-primary: #628D60;
+            --color-secondary: #f5a623;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+        }
+
+        .t-input-title {
+            font-size: 18px;
+        }
+
+        .t-text_md {
+            font-size: 16px;
+        }
+
+        .t-text_xs {
+            font-size: 14px;
+        }
+
+        .t-submit {
+            background-color: var(--color-primary) !important;
+            color: var(--color-bg) !important;
+            border-radius: 4px !important;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+            transition: background-color 150ms ease, box-shadow 150ms ease !important;
+            padding: 12px 24px !important;
+            min-width: 160px !important;
+            text-align: center !important;
+        }
+
+        .t-submit:hover {
+            background-color: #248073 !important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .t-input-group {
+            margin-bottom: 24px !important;
+        }
+
+        .t-input-block {
+            padding: 8px 0 !important;
+        }
+
+        .calculation-button-container {
+            margin-top: 32px !important;
+        }
+
+        .t-radio__item,
+        .t-checkboxes__item {
+            margin-bottom: 12px !important;
+            padding-left: 4px !important;
+        }
+
+        .t-radio__indicator,
+        .t-checkbox__indicator {
+            width: 18px !important;
+            height: 18px !important;
+        }
+
+        input:focus+.t-radio__indicator,
+        input:focus+.t-checkbox__indicator {
+            outline: 2px solid var(--color-secondary) !important;
+            outline-offset: 2px !important;
+        }
+
+        #rec830380373 .t107 {
+            padding: 16px !important;
+            background: var(--color-bg) !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+            border-radius: 4px !important;
+        }
+
+        #goalCalculatorFields {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 200ms ease, max-height 200ms ease;
+        }
+
+        #goalCalculatorFields.visible {
+            opacity: 1;
+            max-height: 2000px;
+        }
+    </style>
 </head>
 
 <body class="t-body" style="margin:0;">
@@ -89,11 +181,9 @@
                             <div style="">
                                 <div field="text" class="t220__text t-text t-text_md ">— Tired of complicated meal
                                     planning?<br /><br />
-                                    — Struggling to maintain your <span style="font-family: GorizontQanelas;">fitness
-                                        goals</span>?<br /><br />
+                                    — Struggling to maintain your fitness goals?<br /><br />
                                     — Fed up with bland meals that don't excite you?<br /><br />
-                                    <span style="font-size: 20px;">— Does traditional meal planning feel time-consuming
-                                        and overwhelming?</span><br /><br />
+                                    — Does traditional meal planning feel time-consuming and overwhelming?<br /><br />
                                     <strong style="font-size: 20px;">Sound familiar? Keep reading to discover how
                                         GustoGoals can transform your eating habits.</strong>
                                 </div>
@@ -141,7 +231,8 @@
                 <div class="t-container t-align_center">
                     <div class="t-col t-col_10 t-prefix_1">
                         <div class="t-form__submit" style="margin-top: 20px;">
-                            <button type="submit" class="t-submit" style="color:#ffffff;background-color:#000000;"
+                            <button type="submit" class="t-submit"
+                                style="color: var(--color-bg); background-color: var(--color-primary);"
                                 data-field="buttontitle" data-buttonfieldset="button">
                                 Discover Your Perfect Meal Plan
                             </button>
@@ -196,7 +287,8 @@
                 <div class="t-container t-align_center">
                     <div class="t-col t-col_10 t-prefix_1">
                         <div class="t-form__submit" style="margin-top: 20px;">
-                            <button type="submit" class="t-submit" style="color:#ffffff;background-color:#000000;"
+                            <button type="submit" class="t-submit"
+                                style="color: var(--color-bg); background-color: var(--color-primary);"
                                 data-field="buttontitle" data-buttonfieldset="button">
                                 Discover Your Perfect Meal Plan
                             </button>
@@ -468,7 +560,7 @@
                                         <!-- Calculate button at the end of all calculation fields -->
                                         <div class="calculation-button-container">
                                             <button type="button" id="calculateButton" class="t-submit"
-                                                style="color:#ffffff;background-color:#000000;margin-top:20px;padding:10px 20px;white-space:normal;line-height:1.4;height:auto;">
+                                                style="color: var(--color-bg); background-color: var(--color-primary); padding:10px 20px; white-space:normal; line-height:1.4; height:auto;">
                                                 Calculate Calories
                                             </button>
                                         </div>
@@ -593,8 +685,8 @@
 
                                     <div class="t-form__submit">
                                         <button type="submit" class="t-submit"
-                                            style="color:#ffffff;background-color:#000000;" data-field="buttontitle"
-                                            data-buttonfieldset="button">
+                                            style="color: var(--color-bg); background-color: var(--color-primary);"
+                                            data-field="buttontitle" data-buttonfieldset="button">
                                             Discover Your Perfect Meal Plan </button>
                                     </div>
                                 </div>
@@ -603,7 +695,7 @@
                             <script>
                                 t_onReady(function () {
                                     document.getElementById('calculateGoalsBtn').addEventListener('click', function () {
-                                        document.getElementById('goalCalculatorFields').style.display = 'block';
+                                        document.getElementById('goalCalculatorFields').classList.add('visible');
                                     });
 
                                     document.getElementById('calculateButton').addEventListener('click', function () {
@@ -717,14 +809,6 @@
                             </style>
 
                             <!-- Script to toggle the calculation fields -->
-                            <script>
-                                t_onReady(function () {
-                                    document.getElementById('calculateGoalsBtn').addEventListener('click', function () {
-                                        document.getElementById('goalCalculatorFields').style.display = 'block';
-                                        document.getElementById('fitnessGoalsSection').style.display = 'block';
-                                    });
-                                });
-                            </script>
 
                             <!-- ...existing placeholder styles... -->
                         </div>
