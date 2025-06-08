@@ -147,6 +147,18 @@
             opacity: 1;
             max-height: 2000px;
         }
+
+        #fitnessGoalsSection {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 200ms ease, max-height 200ms ease;
+        }
+
+        #fitnessGoalsSection.visible {
+            opacity: 1;
+            max-height: 2000px;
+        }
     </style>
 </head>
 
@@ -468,7 +480,7 @@
                                     </div>
 
                                     <!-- Then modify the extra fields for calculation section to include the calculate button at the end -->
-                                    <div id="goalCalculatorFields" style="display: none;">
+                                    <div id="goalCalculatorFields">
                                         <div class="t-input-group">
                                             <div class="t-input-title t-descr t-descr_md"
                                                 style="color:; margin: 20px 0 15px;">
@@ -696,6 +708,7 @@
                                 t_onReady(function () {
                                     document.getElementById('calculateGoalsBtn').addEventListener('click', function () {
                                         document.getElementById('goalCalculatorFields').classList.add('visible');
+                                        document.getElementById('fitnessGoalsSection').classList.add('visible');
                                     });
 
                                     document.getElementById('calculateButton').addEventListener('click', function () {
