@@ -1,835 +1,1022 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!--metatextblock-->
-    <title>GustoGoals - Personalized Meal Plans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GustoGoals - Your Human-Like & Personalized Meal Planner</title>
     <meta name="description" content="Save Hours Each Week with Smarter Meal Planning." />
     <meta property="og:url" content="https://gustogoals.com" />
     <meta property="og:title" content="GustoGoals - Personalized Meal Plans" />
     <meta property="og:description" content="Personalized meal plans tailored to your fitness goals" />
     <meta property="og:type" content="website" />
-    <meta property="og:image"
-        content="https://thb.tildacdn.com/tild3435-6530-4235-b666-303863613539/-/resize/504x/Screenshot_2024-11-2.png" />
-    <link rel="canonical" href="https://gustogoals.com"> <!--/metatextblock-->
+    <link rel="canonical" href="https://gustogoals.com">
     <meta name="format-detection" content="telephone=no" />
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-    <link rel="dns-prefetch" href="https://ws.tildacdn.com">
-    <link rel="dns-prefetch" href="https://static.tildacdn.com">
+
+    <!-- Favicons -->
     <link rel="icon" type="image/x-icon" sizes="32x32"
-        href="https://static.tildacdn.com/tild3432-3536-4032-a239-653638356635/Frame_2087327239.jpg"
-        media="(prefers-color-scheme: light)" />
-    <link rel="icon" type="image/png" sizes="32x32"
-        href="https://static.tildacdn.com/tild3133-6638-4965-a632-646637306433/favicon-32x32.png"
-        media="(prefers-color-scheme: dark)" />
-    <link rel="apple-touch-icon" type="image/png"
-        href="https://static.tildacdn.com/tild6130-3930-4537-b739-303262666631/android-chrome-192x1.png">
-    <link rel="icon" type="image/png" sizes="192x192"
-        href="https://static.tildacdn.com/tild6130-3930-4537-b739-303262666631/android-chrome-192x1.png">
-    <!-- Assets -->
-    <script src="https://neo.tildacdn.com/js/tilda-fallback-1.0.min.js" async charset="utf-8"></script>
-    <link rel="stylesheet" href="https://static.tildacdn.com/css/tilda-grid-3.0.min.css" type="text/css" media="all"
-        onerror="this.loaderr='y';" />
-    <link rel="stylesheet"
-        href="https://static.tildacdn.com/ws/project8439176/tilda-blocks-page58835041.min.css?t=1743582652"
-        type="text/css" media="all" onerror="this.loaderr='y';" />
-    <link rel="stylesheet" href="https://static.tildacdn.com/css/tilda-forms-1.0.min.css" type="text/css" media="all"
-        onerror="this.loaderr='y';" />
-    <script nomodule src="https://static.tildacdn.com/js/tilda-polyfill-1.0.min.js" charset="utf-8"></script>
-    <script
-        type="text/javascript">function t_onReady(func) { if (document.readyState != 'loading') { func(); } else { document.addEventListener('DOMContentLoaded', func); } }
-            function t_onFuncLoad(funcName, okFunc, time) { if (typeof window[funcName] === 'function') { okFunc(); } else { setTimeout(function () { t_onFuncLoad(funcName, okFunc, time); }, (time || 100)); } }</script>
-    <script src="https://static.tildacdn.com/js/jquery-1.10.2.min.js" charset="utf-8"
-        onerror="this.loaderr='y';"></script>
-    <script src="https://static.tildacdn.com/js/tilda-scripts-3.0.min.js" charset="utf-8" defer
-        onerror="this.loaderr='y';"></script>
-    <script src="https://static.tildacdn.com/ws/project8439176/tilda-blocks-page58835041.min.js?t=1743582652"
-        charset="utf-8" async onerror="this.loaderr='y';"></script>
-    <script src="https://static.tildacdn.com/js/tilda-lazyload-1.0.min.js" charset="utf-8" async
-        onerror="this.loaderr='y';"></script>
-    <script src="https://static.tildacdn.com/js/hammer.min.js" charset="utf-8" async
-        onerror="this.loaderr='y';"></script>
-    <script src="https://static.tildacdn.com/js/tilda-forms-1.0.min.js" charset="utf-8" async
-        onerror="this.loaderr='y';"></script>
-    <script src="https://static.tildacdn.com/js/tilda-events-1.0.min.js" charset="utf-8" async
-        onerror="this.loaderr='y';"></script>
-    <!-- JavaScript and analytics scripts remain unchanged -->
+        href="https://static.tildacdn.com/tild3432-3536-4032-a239-653638356635/Frame_2087327239.jpg" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
-            --color-bg: #fff;
-            --color-text: #000;
-            --color-primary: #628D60;
-            --color-secondary: #f5a623;
+            --primary-color: #628D60;
+            --secondary-color: #f5a623;
+            --text-color: #333;
+            --text-light: #666;
+            --bg-color: #fff;
+            --bg-light: #f8f9fa;
+            --border-color: #e1e5e9;
+            --success-color: #28a745;
+            --gradient: linear-gradient(135deg, #628D60 0%, #4a6b48 100%);
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
-            font-size: 16px;
-            color: var(--color-text);
-            background-color: var(--color-bg);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--bg-color);
         }
 
-        .t-input-title {
-            font-size: 18px;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .t-text_md {
-            font-size: 16px;
+        .section {
+            padding: 60px 0;
         }
 
-        .t-text_xs {
-            font-size: 14px;
+        .section-sm {
+            padding: 40px 0;
         }
 
-        .t-submit {
-            background-color: var(--color-primary) !important;
-            color: var(--color-bg) !important;
-            border-radius: 4px !important;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
-            transition: background-color 150ms ease, box-shadow 150ms ease !important;
-            padding: 12px 24px !important;
-            min-width: 160px !important;
-            text-align: center !important;
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+            padding: 100px 0 80px;
         }
 
-        .t-submit:hover {
-            background-color: #248073 !important;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
         }
 
-        .t-input-group {
-            margin-bottom: 24px !important;
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            font-weight: 400;
         }
 
-        .t-input-block {
-            padding: 8px 0 !important;
+        .hero .description {
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+            opacity: 0.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .calculation-button-container {
-            margin-top: 32px !important;
+        .btn {
+            display: inline-block;
+            padding: 18px 40px;
+            background: white;
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .t-radio__item,
-        .t-checkboxes__item {
-            margin-bottom: 12px !important;
-            padding-left: 4px !important;
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
         }
 
-        .t-radio__indicator,
-        .t-checkbox__indicator {
-            width: 18px !important;
-            height: 18px !important;
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
         }
 
-        input:focus+.t-radio__indicator,
-        input:focus+.t-checkbox__indicator {
-            outline: 2px solid var(--color-secondary) !important;
-            outline-offset: 2px !important;
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary-color);
         }
 
-        #rec830380373 .t107 {
-            padding: 16px !important;
-            background: var(--color-bg) !important;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
-            border-radius: 4px !important;
+        /* Trust indicators */
+        .trust-section {
+            background: var(--bg-light);
+            padding: 40px 0;
+            text-align: center;
         }
 
-        #goalCalculatorFields {
+        .trust-text {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .trust-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .trust-free-text {
+            margin-top: 5px;
+            font-size: 1rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .trust-free-text em {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        /* Pain Points Section */
+        .pain-points {
+            background: var(--bg-color);
+            text-align: center;
+        }
+
+        .pain-points h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: var(--text-color);
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .pain-item {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .pain-item .emoji {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .pain-item h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .pain-item p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .pain-conclusion {
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+
+        .pain-conclusion h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Features Section */
+        .features {
+            background: var(--bg-light);
+        }
+
+        .features h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .features .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 60px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .feature-card .emoji {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* How it works */
+        .how-it-works {
+            text-align: center;
+        }
+
+        .how-it-works h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .step {
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .step p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .pricing h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .pricing .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 60px;
+        }
+
+        .pricing-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border: 3px solid var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: "Best Choice";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .price-header h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .price .currency {
+            font-size: 1.5rem;
+            vertical-align: top;
+        }
+
+        .price .period {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-light);
+        }
+
+        .price-features {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .price-features li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .price-features li::before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+
+        /* Form Section */
+        .form-section {
+            background: var(--bg-color);
+        }
+
+        .form-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-section .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 60px;
+        }
+
+        .meal-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-color);
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+        }
+
+        .nutrition-goals {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .calculator-section {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 20px;
             opacity: 0;
             max-height: 0;
             overflow: hidden;
-            transition: opacity 200ms ease, max-height 200ms ease;
+            transition: all 0.3s ease;
         }
 
-        #goalCalculatorFields.visible {
+        .calculator-section.visible {
             opacity: 1;
-            max-height: 2000px;
+            max-height: 1000px;
         }
 
-        #fitnessGoalsSection {
-            opacity: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: opacity 200ms ease, max-height 200ms ease;
+        .calculate-link {
+            color: var(--primary-color);
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: 500;
         }
 
-        #fitnessGoalsSection.visible {
-            opacity: 1;
-            max-height: 2000px;
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(98, 141, 96, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .pain-grid,
+            .features-grid,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-rows: auto;
+            }
+
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .checkbox-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Additional styles for form functionality */
+        .hidden {
+            display: none;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .radio-item input[type="radio"] {
+            width: auto;
         }
     </style>
 </head>
 
-<body class="t-body" style="margin:0;">
-    <div id="allrecords" class="t-records" data-hook="blocks-collection-content-node" data-tilda-project-id="8439176"
-        data-tilda-page-id="58835041" data-tilda-page-alias="gustogoals"
-        data-tilda-formskey="01aadc99dfff00eed4eb88ba68439176" data-tilda-cookie="no" data-tilda-lazy="yes"
-        data-tilda-root-zone="com" data-tilda-project-headcode="yes">
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Save Hours Each Week with Smarter Meal Planning</h1>
+            <p class="subtitle">No time for perfect meal planning? Generic diets fail instantly.</p>
+            <p class="description">Stop the struggle. GustoGoals delivers <strong>personalized, delicious</strong> meal
+                plans fast – so you can eat less stress, achieve more.</p>
+            <a href="#meal-form" class="btn">Try It Now</a>
+        </div>
+    </section>
 
-        <!-- Main heading section -->
-        <div id="rec830376396" class="r t-rec t-rec_pt_135 t-rec_pb_90" style="padding-top:135px;padding-bottom:90px; "
-            data-record-type="33">
-            <div class="t017">
-                <div class="t-container t-align_center">
-                    <div class="t-col t-col_10 t-prefix_1">
-                        <div class="t017__title t-title t-title_xxs" field="title">Save Hours Each Week with Smarter
-                            Meal Planning</div>
-                        <div class="t017__descr t-descr t-descr_xs" field="descr">Personalized meal plans tailored to
-                            your fitness goals</div>
-                    </div>
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <div class="container">
+            <p class="trust-text">Trusted by Health-Conscious People from</p>
+            <div class="trust-logos">
+                <strong>London, New York, Toronto, Sydney & more</strong>
+            </div>
+            <p class="trust-free-text">
+                <em>First meal plan is 100% free — no credit card needed</em>
+            </p>
+        </div>
+    </section>
+
+    <!-- Pain Points Section -->
+    <section class="pain-points section">
+        <div class="container">
+            <h2>You're not lazy - You're overwhelmed</h2>
+            <div class="pain-grid">
+                <div class="pain-item">
+                    <span class="emoji">⏳</span>
+                    <h3>2 hours of meal planning</h3>
+                    <p>But you're <strong>hungry right now.</strong></p>
+                </div>
+                <div class="pain-item">
+                    <span class="emoji">🤖</span>
+                    <h3>Generic diets don't work</h3>
+                    <p><strong>One-size-fits-all</strong> plans ignore your goals.</p>
+                </div>
+                <div class="pain-item">
+                    <span class="emoji">🚨</span>
+                    <h3>Bland, boring meals</h3>
+                    <p>One failed week = <strong>lost motivation</strong> and weeks of guilt.</p>
+                </div>
+            </div>
+            <div class="pain-conclusion">
+                <h3>Why People Use GustoGoals</h3>
+                <p>Most people struggle with healthy eating because you're busy, but want nutritious meals that excite
+                    your taste buds. Finding recipes that match your fitness goals is time-consuming, and balancing
+                    nutrition, taste, and convenience seems impossible.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features section">
+        <div class="container">
+            <h2>What You Get with GustoGoals</h2>
+            <p class="subtitle">Stop wasting time and money — get your <strong>perfect, personalized</strong> meal plan
+                in <strong>seconds</strong>.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="emoji">⌚</span>
+                    <h3>Done in Seconds</h3>
+                    <p>Save 10–20 hours on every week of meal planning.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="emoji">🍽️</span>
+                    <h3>Personalized & Delicious</h3>
+                    <p>Custom meal plans tailored to your exact fitness goals and taste preferences.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="emoji">🌍</span>
+                    <h3>Regional Flavors</h3>
+                    <p>Diverse cuisines from Indian to Italian, Mexican to Japanese.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="emoji">💸</span>
+                    <h3>Save Hundreds of Pounds</h3>
+                    <p>No need to pay £50–£100 per week to a nutritionist.</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Pain points section -->
-        <div id="rec830377297" class="r t-rec t-rec_pt_90 t-rec_pb_0" style="padding-top:90px;padding-bottom:0px; "
-            data-record-type="248">
-            <div class="t220">
-                <div class="t-container ">
-                    <div class="t-col t-col_8 t-prefix_2">
-                        <div class="t220__textwrapper" style="background-color:#f5f5f5;">
-                            <div style="">
-                                <div field="text" class="t220__text t-text t-text_md ">— Tired of complicated meal
-                                    planning?<br /><br />
-                                    — Struggling to maintain your fitness goals?<br /><br />
-                                    — Fed up with bland meals that don't excite you?<br /><br />
-                                    — Does traditional meal planning feel time-consuming and overwhelming?<br /><br />
-                                    <strong style="font-size: 20px;">Sound familiar? Keep reading to discover how
-                                        GustoGoals can transform your eating habits.</strong>
-                                </div>
+    <!-- How It Works -->
+    <section class="how-it-works section">
+        <div class="container">
+            <h2>Create Your Meal Plan in Seconds</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Set Your Goals</h3>
+                    <p>Tell us your fitness targets and dietary preferences</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Click Generate</h3>
+                    <p>Our AI creates your personalized meal plan</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Get Your Plan</h3>
+                    <p>Receive structured, delicious meals ready to cook</p>
+                </div>
+            </div>
+            <a href="#meal-form" class="btn btn-outline">Start Free — No Card Required</a>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing section">
+        <div class="container">
+            <h2>Simple Pricing That Saves You Time & Money</h2>
+            <p class="subtitle">You could spend hours planning… or just <strong>20 seconds generating</strong>.</p>
+            <div class="pricing-cards">
+                <div class="pricing-card featured">
+                    <div class="price-header">
+                        <h3>Start Your Journey</h3>
+                        <div class="price">
+                            <span style="font-size: 1.5rem;">Free meal plan for</span>
+                            <div
+                                style="font-size: 2.5rem; font-weight: 800; color: var(--primary-color); margin: 10px 0;">
+                                1 Week
+                            </div>
+                            <span style="font-size: 1.2rem; color: var(--text-light);">Then £7.99/month</span>
+                        </div>
+                    </div>
+                    <ul class="price-features">
+                        <li>Complete week of personalized meals</li>
+                        <li>All cuisine types available</li>
+                        <li>Advanced nutrition tracking</li>
+                        <li>Shopping lists included</li>
+                        <li>Cancel anytime after trial</li>
+                    </ul>
+                    <a href="#meal-form" class="btn">Start Free Week</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section section" id="meal-form">
+        <div class="container">
+            <h2>Discover Your Perfect Meal Plan — Today</h2>
+            <p class="subtitle">Complete the form below to get your personalized meal plan</p>
+
+            <form class="meal-form" action="" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="Name" placeholder="Full Name" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="Email" placeholder="youremail@example.com" required>
+                        <small>We'll send your meal plans here</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="Phone" placeholder="+44 123 456 7890">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="social">Social Media Handle</label>
+                    <input type="text" id="social" name="Social Media Handle" placeholder="@yourusername">
+                </div>
+
+                <!-- Nutrition Goals Section -->
+                <div class="nutrition-goals">
+                    <h3>Know your goals?</h3>
+                    <div class="form-row" style="margin-top: 20px;">
+                        <div class="form-group">
+                            <label for="calories">Calories</label>
+                            <input type="number" id="calories" name="Calories" placeholder="e.g., 2000">
+                        </div>
+                        <div class="form-group">
+                            <label for="carbs">Carbs (g)</label>
+                            <input type="number" id="carbs" name="Carbs" placeholder="90" value="90">
+                        </div>
+                        <div class="form-group">
+                            <label for="protein">Protein (g)</label>
+                            <input type="number" id="protein" name="Protein" placeholder="90" value="90">
+                        </div>
+                        <div class="form-group">
+                            <label for="fat">Fat (g)</label>
+                            <input type="number" id="fat" name="Fat" placeholder="40" value="40">
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 15px;">
+                        <span class="calculate-link" id="showCalculator">Not sure? Let's calculate it</span>
+                    </p>
+                </div>
+
+                <!-- Calculator Section -->
+                <div class="calculator-section" id="calculatorSection">
+                    <h3>To calculate your goals, we need a bit more info:</h3>
+
+                    <div class="form-row" style="margin-top: 20px;">
+                        <div class="form-group">
+                            <label for="height">Height (cm)</label>
+                            <input type="number" id="height" name="Height" placeholder="e.g., 175">
+                        </div>
+                        <div class="form-group">
+                            <label for="weight">Weight (kg)</label>
+                            <input type="number" id="weight" name="Weight" placeholder="e.g., 70">
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender" name="Gender">
+                                <option value="">Select</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="bodyType">Body Type</label>
+                            <select id="bodyType" name="BodyType">
+                                <option value="">Select</option>
+                                <option value="Ectomorph">Ectomorph (Slim)</option>
+                                <option value="Mesomorph">Mesomorph (Athletic)</option>
+                                <option value="Endomorph">Endomorph (Solid)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 20px;">
+                        <label>Your Fitness Goal</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="weightLoss" name="Fitness Goal" value="Weight Loss">
+                                <label for="weightLoss">Weight Loss</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="muscleBuilding" name="Fitness Goal" value="Muscle Building">
+                                <label for="muscleBuilding">Muscle Building</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="generalHealth" name="Fitness Goal" value="General Health">
+                                <label for="generalHealth">General Health</label>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Problem explanation -->
-        <div id="rec830377626" class="r t-rec t-rec_pt_60 t-rec_pb_0" style="padding-top:60px;padding-bottom:0px; "
-            data-record-type="106">
-            <div class="t004">
-                <div class="t-container ">
-                    <div class="t-col t-col_8 t-prefix_2">
-                        <div field="text" class="t-text t-text_md ">Most people struggle with healthy eating
-                            because:<br />​<br />
-                            <ul>
-                                <li data-list="bullet">You're busy, but want nutritious meals that excite your taste
-                                    buds</li>
-                                <li data-list="bullet">Finding recipes that match your fitness goals is time-consuming
-                                </li>
-                                <li data-list="bullet">Balancing nutrition, taste, and convenience seems impossible</li>
-                            </ul>​<br />
-                            <strong>The result: You settle for convenient but unhealthy options, feel guilty, and your
-                                fitness goals remain out of reach.</strong><br /><br />
-                            <strong>What happens if you don't address this?</strong><br /><br />
-                            <ol>
-                                <li data-list="ordered">Continued frustration with your diet and fitness progress</li>
-                                <li data-list="ordered">Wasted money on food that doesn't support your goals</li>
-                                <li data-list="ordered">Missing out on the joy of eating delicious, nutritious meals
-                                </li>
-                            </ol>
+                    <button type="button" class="btn-secondary" id="calculateBtn" style="margin-top: 20px;">
+                        Calculate Calories
+                    </button>
+                </div>
+
+                <!-- Dietary Preferences -->
+                <div class="form-group">
+                    <label>Dietary Preferences</label>
+                    <div class="checkbox-grid" style="margin-top: 15px;">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="vegetarian" name="Dietary Preferences" value="Vegetarian">
+                            <label for="vegetarian">Vegetarian</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="vegan" name="Dietary Preferences" value="Vegan">
+                            <label for="vegan">Vegan</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="glutenFree" name="Dietary Preferences" value="Gluten-Free">
+                            <label for="glutenFree">Gluten-Free</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="dairyFree" name="Dietary Preferences" value="Dairy-Free">
+                            <label for="dairyFree">Dairy-Free</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="keto" name="Dietary Preferences" value="Keto">
+                            <label for="keto">Keto</label>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Solution heading -->
-        <div id="rec830378759" class="r t-rec t-rec_pt_60 t-rec_pb_60" style="padding-top:60px;padding-bottom:60px; "
-            data-record-type="33">
-            <div class="t017">
-                <div class="t-container t-align_center">
-                    <div class="t-col t-col_10 t-prefix_1">
-                        <div class="t-form__submit" style="margin-top: 20px;">
-                            <button type="submit" class="t-submit"
-                                style="color: var(--color-bg); background-color: var(--color-primary);"
-                                data-field="buttontitle" data-buttonfieldset="button">
-                                Discover Your Perfect Meal Plan
-                            </button>
+                <!-- Cuisine Preferences -->
+                <div class="form-group">
+                    <label>Cuisine Preferences</label>
+                    <div class="checkbox-grid" style="margin-top: 15px;">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="indian" name="Cuisine Preferences" value="Indian">
+                            <label for="indian">Indian</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="italian" name="Cuisine Preferences" value="Italian">
+                            <label for="italian">Italian</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="mexican" name="Cuisine Preferences" value="Mexican">
+                            <label for="mexican">Mexican</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="japanese" name="Cuisine Preferences" value="Japanese">
+                            <label for="japanese">Japanese</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="afroCaribbean" name="Cuisine Preferences" value="Afro Caribbean">
+                            <label for="afroCaribbean">Afro Caribbean</label>
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <button type="submit" class="btn-primary">
+                    🍽️ Discover Your Perfect Meal Plan
+                </button>
+            </form>
         </div>
+    </section>
 
-        <!-- Solution description -->
-        <div id="rec830378838" class="r t-rec t-rec_pt_60 t-rec_pb_0" style="padding-top:60px;padding-bottom:0px; "
-            data-record-type="106">
-            <div class="t004">
-                <div class="t-container ">
-                    <div class="t-col t-col_8 t-prefix_2">
-                        <div field="text" class="t-text t-text_md ">GustoGoals provides personalized meal plans tailored
-                            specifically to your fitness targets and dietary preferences, all with delicious regional
-                            flavors.<br />​<br />
-                            Simplify your meal preparation, enjoy delightful dishes, and achieve your health goals
-                            effortlessly with our easy-to-follow plans.<br />​<br />
-                            Our platform automatically generates shopping lists, tracks your nutritional intake, and
-                            suggests adjustments based on your progress.<br />​<br />
-                            <strong>Key features include:</strong><br /><br />
-                            <ul>
-                                <li data-list="bullet">🍽️ Custom Meal Plans: Recipes tailored to your nutritional needs
-                                </li>
-                                <li data-list="bullet">🌍 Regional Flavors: Diverse and tasty dishes from your favorite
-                                    cuisines</li>
-                                <li data-list="bullet">⏰ Save Time: Instant grocery lists and easy-to-follow meal prep
-                                    schedules</li>
-                            </ul><br />
-                            <strong>Here's how it works:</strong><br /><br />
-                            <ol>
-                                <li data-list="ordered">Set Your Goals: Tell us your fitness and dietary preferences
-                                </li>
-                                <li data-list="ordered">Personalized Recipes: Get tailored recipes that match your needs
-                                </li>
-                                <li data-list="ordered">Enjoy & Achieve: Cook delicious meals and reach your fitness
-                                    targets</li>
-                            </ol><br />
-                            <strong>Access your meal plans from anywhere - desktop, tablet, or smartphone</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <script>
+        // Show calculator section
+        document.getElementById('showCalculator').addEventListener('click', function () {
+            document.getElementById('calculatorSection').classList.add('visible');
+        });
 
-        <!-- Demo section heading -->
-        <div id="rec830380056" class="r t-rec t-rec_pt_60 t-rec_pb_60" style="padding-top:60px;padding-bottom:60px; "
-            data-record-type="33">
-            <div class="t017">
-                <div class="t-container t-align_center">
-                    <div class="t-col t-col_10 t-prefix_1">
-                        <div class="t-form__submit" style="margin-top: 20px;">
-                            <button type="submit" class="t-submit"
-                                style="color: var(--color-bg); background-color: var(--color-primary);"
-                                data-field="buttontitle" data-buttonfieldset="button">
-                                Discover Your Perfect Meal Plan
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        // Calculate calories
+        document.getElementById('calculateBtn').addEventListener('click', function () {
+            const height = parseInt(document.getElementById('height').value) || 0;
+            const weight = parseInt(document.getElementById('weight').value) || 0;
+            const gender = document.getElementById('gender').value;
+            const bodyType = document.getElementById('bodyType').value;
 
-        <!-- Demo image -->
-        <div id="rec830380373" class="r t-rec t-rec_pt_75 t-rec_pb_75" style="padding-top:75px;padding-bottom:75px; "
-            data-record-type="3">
-            <div class="t107">
-                <div class="t-align_center" itemscope itemtype="http://schema.org/ImageObject">
-                    <meta itemprop="image"
-                        content="https://static.tildacdn.com/tild3435-6530-4235-b666-303863613539/Screenshot_2024-11-2.png">
-                    <div style="display: flex; justify-content: center;">
-                        <img class="t-img t-width t107__widthauto" src="images/gustogoals-flow-indian.png"
-                            data-original="images/gustogoals-flow-indian.png" imgfield="img"
-                            alt="GustoGoals Meal Planning Journey">
-                    </div>
-                </div>
-            </div>
-        </div>
+            // Get fitness goal
+            let fitnessGoal = '';
+            const goals = document.querySelectorAll('input[name="Fitness Goal"]');
+            for (const goal of goals) {
+                if (goal.checked) {
+                    fitnessGoal = goal.value;
+                    break;
+                }
+            }
 
-        <!-- Benefits heading -->
-        <div id="rec830380483" class="r t-rec t-rec_pt_60 t-rec_pb_60" style="padding-top:60px;padding-bottom:60px; "
-            data-record-type="33">
-            <div class="t017">
-                <div class="t-container t-align_center">
-                    <div class="t-col t-col_10 t-prefix_1">
-                        <div class="t017__title t-title t-title_xxs" field="title">Ready to taste your success?</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            // Simple BMR calculation (Mifflin-St Jeor)
+            let calories = 0;
 
-        <!-- Benefits and pricing section -->
-        <div id="rec830380523" class="r t-rec t-rec_pt_15 t-rec_pb_0" style="padding-top:15px;padding-bottom:0px; "
-            data-record-type="106">
-            <div class="t004">
-                <div class="t-container ">
-                    <div class="t-col t-col_8 t-prefix_2">
-                        <div field="text" class="t-text t-text_md "><strong>With GustoGoals, you'll
-                                enjoy:</strong><br /><br />
-                            <ol>
-                                <li data-list="ordered">Healthier eating habits that align with your fitness goals</li>
-                                <li data-list="ordered">Time savings of 5+ hours per week on meal planning and prep</li>
-                                <li data-list="ordered">Delicious meals that make you look forward to healthy eating
-                                </li>
-                            </ol>
-                            <strong>Pricing Plans</strong><br /><br />
-                            <strong>Starting at just £7.99/month for personalized meal plans.</strong><br /><br />
-                            <strong>Free 7-day trial.</strong><br /><br />
-                            Ready to transform your eating habits and achieve your fitness goals?<br /><br />
-                            Complete the form below to discover your perfect meal plan:
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            if (gender === 'Male') {
+                calories = 10 * weight + 6.25 * height - 5 * 30 + 5; // Assuming age 30
+            } else if (gender === 'Female') {
+                calories = 10 * weight + 6.25 * height - 5 * 30 - 161; // Assuming age 30
+            } else {
+                calories = 10 * weight + 6.25 * height - 5 * 30 - 78; // Average
+            }
 
-        <!-- Contact form - updated with new nutrition goals section -->
-        <div id="rec830381165" class="r t-rec t-rec_pt_60 t-rec_pb_105" style="padding-top:60px;padding-bottom:105px; "
-            data-animationappear="off" data-record-type="678">
-            <div class="t678 ">
-                <div class="t-container">
-                    <div class="t-col t-col_8 t-prefix_2">
-                        <div>
-                            <form id="form830381165" name='form830381165' role="form" action='' method='POST'
-                                data-formactiontype="2" data-inputbox=".t-input-group"
-                                class="t-form js-form-proccess t-form_inputs-total_6 "
-                                data-success-callback="t678_onSuccess">
-                                <input type="hidden" name="formservices[]" value="382a0b31520784591cb4ae3b0a7ed288"
-                                    class="js-formaction-services">
-                                <div class="js-successbox t-form__successbox t-text t-text_md" aria-live="polite"
-                                    style="display:none;"></div>
-                                <div class="t-form__inputsbox t-form__inputsbox_vertical-form t-form__inputsbox_inrow">
-                                    <div class=" t-input-group t-input-group_nm " data-input-lid="5297513689601"
-                                        data-field-type="nm" data-field-name="Name"> <label for='input_5297513689601'
-                                            class="t-input-title t-descr t-descr_md" id="field-title_5297513689601"
-                                            data-redactor-toolbar="no" field="li_title__5297513689601"
-                                            style="color:;">Your Name</label>
-                                        <div class="t-input-block "> <input type="text" autocomplete="name" name="Name"
-                                                id="input_5297513689601" class="t-input js-tilda-rule" value=""
-                                                placeholder="Full Name" data-tilda-rule="name"
-                                                aria-describedby="error_5297513689601"
-                                                style="color:#000000;border:1px solid #000000;"> </div>
-                                        <div class="t-input-error" aria-live="polite" id="error_5297513689601"></div>
-                                    </div>
-                                    <div class=" t-input-group t-input-group_em " data-input-lid="5297513689600"
-                                        data-field-type="em" data-field-name="Email"> <label for='input_5297513689600'
-                                            class="t-input-title t-descr t-descr_md" id="field-title_5297513689600"
-                                            data-redactor-toolbar="no" field="li_title__5297513689600"
-                                            style="color:;">Email</label>
-                                        <div class="t-input-subtitle t-descr t-descr_xxs t-opacity_70"
-                                            data-redactor-toolbar="no" field="li_subtitle__5297513689600"
-                                            style="color:;">We'll send your meal plans here</div>
-                                        <div class="t-input-block "> <input type="email" autocomplete="email"
-                                                name="Email" id="input_5297513689600" class="t-input js-tilda-rule"
-                                                value="" placeholder="youremail@example.com" data-tilda-req="1"
-                                                aria-required="true" data-tilda-rule="email"
-                                                aria-describedby="error_5297513689600"
-                                                style="color:#000000;border:1px solid #000000;"> </div>
-                                        <div class="t-input-error" aria-live="polite" id="error_5297513689600"></div>
-                                    </div>
-                                    <div class=" t-input-group t-input-group_ph " data-input-lid="5297513689602"
-                                        data-field-type="ph" data-field-name="Phone"> <label for='input_5297513689602'
-                                            class="t-input-title t-descr t-descr_md" id="field-title_5297513689602"
-                                            data-redactor-toolbar="no" field="li_title__5297513689602"
-                                            style="color:;">Phone Number</label>
-                                        <div class="t-input-block "> <input type="tel" autocomplete="tel" name="Phone"
-                                                id="input_5297513689602" class="t-input js-tilda-rule" value=""
-                                                placeholder="+1 234 567 8900" data-tilda-rule="phone" pattern="[0-9]*"
-                                                aria-describedby="error_5297513689602"
-                                                style="color:#000000;border:1px solid #000000;"> </div>
-                                        <div class="t-input-error" aria-live="polite" id="error_5297513689602"></div>
-                                    </div>
-                                    <div class=" t-input-group t-input-group_in " data-input-lid="5297513689603"
-                                        data-field-type="in" data-field-name="Social Media Handle"> <label
-                                            for='input_5297513689603' class="t-input-title t-descr t-descr_md"
-                                            id="field-title_5297513689603" data-redactor-toolbar="no"
-                                            field="li_title__5297513689603" style="color:;">Social Media Handle</label>
-                                        <div class="t-input-block "> <input type="text" name="Social Media Handle"
-                                                id="input_5297513689603" class="t-input js-tilda-rule" value=""
-                                                placeholder="@yourusername" aria-describedby="error_5297513689603"
-                                                style="color:#000000;border:1px solid #000000;"> </div>
-                                        <div class="t-input-error" aria-live="polite" id="error_5297513689603"></div>
-                                    </div>
+            // Adjust for body type
+            if (bodyType === 'Ectomorph') {
+                calories *= 1.1;
+            } else if (bodyType === 'Endomorph') {
+                calories *= 0.9;
+            }
 
-                                    <!-- First, let's update the nutrition goals section without a calculate button there -->
-                                    <div class=" t-input-group t-input-group_in nutritional-goals-section">
-                                        <div class="t-input-title t-descr t-descr_md"
-                                            style="color:; margin-bottom: 15px;">Know your goals?</div>
+            // Adjust for fitness goal
+            if (fitnessGoal === 'Weight Loss') {
+                calories *= 0.8;
+            } else if (fitnessGoal === 'Muscle Building') {
+                calories *= 1.2;
+            } else if (fitnessGoal === 'General Health') {
+                calories *= 1.1;
+            }
 
-                                        <div class="t-input-block nutrition-goals-grid">
-                                            <div class="nutrition-goal-item">
-                                                <label class="t-input-title t-descr t-descr_md"
-                                                    style="color:; font-size: 14px;">Calories</label>
-                                                <input type="number" name="Calories" id="caloriesInput"
-                                                    class="t-input js-tilda-rule" value="" placeholder="e.g., 2000"
-                                                    style="color:#000000;border:1px solid #000000;">
-                                            </div>
+            // Round to nearest 50
+            calories = Math.round(calories / 50) * 50;
 
-                                            <div class="nutrition-goal-item">
-                                                <label class="t-input-title t-descr t-descr_md"
-                                                    style="color:; font-size: 14px;">Carbs (g)</label>
-                                                <input type="number" name="Carbs" class="t-input js-tilda-rule"
-                                                    value="90" placeholder="Carbs in grams"
-                                                    style="color:#000000;border:1px solid #000000;">
-                                            </div>
+            // Default if calculation fails
+            if (!calories || isNaN(calories) || calories < 1200) {
+                calories = 2000;
+            }
 
-                                            <div class="nutrition-goal-item">
-                                                <label class="t-input-title t-descr t-descr_md"
-                                                    style="color:; font-size: 14px;">Protein (g)</label>
-                                                <input type="number" name="Protein" class="t-input js-tilda-rule"
-                                                    value="90" placeholder="Protein in grams"
-                                                    style="color:#000000;border:1px solid #000000;">
-                                            </div>
+            // Set the calculated value
+            document.getElementById('calories').value = calories;
 
-                                            <div class="nutrition-goal-item">
-                                                <label class="t-input-title t-descr t-descr_md"
-                                                    style="color:; font-size: 14px;">Fat (g)</label>
-                                                <input type="number" name="Fat" class="t-input js-tilda-rule" value="40"
-                                                    placeholder="Fat in grams"
-                                                    style="color:#000000;border:1px solid #000000;">
-                                            </div>
-                                        </div>
+            // Scroll back to calories input
+            document.getElementById('calories').scrollIntoView({ behavior: 'smooth' });
+        });
 
-                                        <div class="calculate-goals-link">
-                                            <a href="javascript:void(0);" id="calculateGoalsBtn"
-                                                class="t-descr t-descr_xs"
-                                                style="color:#000; border-bottom: 1px dashed; text-decoration: none;">
-                                                Not sure? Let's calculate it
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <!-- Then modify the extra fields for calculation section to include the calculate button at the end -->
-                                    <div id="goalCalculatorFields">
-                                        <div class="t-input-group">
-                                            <div class="t-input-title t-descr t-descr_md"
-                                                style="color:; margin: 20px 0 15px;">
-                                                To calculate your goals, we need a bit more info:
-                                            </div>
-
-                                            <div class="t-input-block calculation-fields-grid">
-                                                <div class="calculation-field-item">
-                                                    <label class="t-input-title t-descr t-descr_md"
-                                                        style="color:; font-size: 14px;">Height (cm)</label>
-                                                    <input type="number" name="Height" id="heightInput"
-                                                        class="t-input js-tilda-rule" value="" placeholder="e.g., 175"
-                                                        style="color:#000000;border:1px solid #000000;">
-                                                </div>
-
-                                                <div class="calculation-field-item">
-                                                    <label class="t-input-title t-descr t-descr_md"
-                                                        style="color:; font-size: 14px;">Weight (kg)</label>
-                                                    <input type="number" name="Weight" id="weightInput"
-                                                        class="t-input js-tilda-rule" value="" placeholder="e.g., 70"
-                                                        style="color:#000000;border:1px solid #000000;">
-                                                </div>
-
-                                                <div class="calculation-field-item">
-                                                    <label class="t-input-title t-descr t-descr_md"
-                                                        style="color:; font-size: 14px;">Gender</label>
-                                                    <select name="Gender" id="genderSelect"
-                                                        class="t-input js-tilda-rule"
-                                                        style="color:#000000;border:1px solid #000000;">
-                                                        <option value="">Select</option>
-                                                        <option value="Male">Male</option>
-                                                        <option value="Female">Female</option>
-                                                        <option value="Other">Other</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="calculation-field-item">
-                                                    <label class="t-input-title t-descr t-descr_md"
-                                                        style="color:; font-size: 14px;">Body Type</label>
-                                                    <select name="BodyType" id="bodyTypeSelect"
-                                                        class="t-input js-tilda-rule"
-                                                        style="color:#000000;border:1px solid #000000;">
-                                                        <option value="">Select</option>
-                                                        <option value="Ectomorph">Ectomorph (Slim)</option>
-                                                        <option value="Mesomorph">Mesomorph (Athletic)</option>
-                                                        <option value="Endomorph">Endomorph (Solid)</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Fitness goals section (keeping it nested in the calculator fields) -->
-                                        <div id="fitnessGoalsSection" class="t-input-group t-input-group_rd"
-                                            data-input-lid="1732444864107" role="radiogroup"
-                                            aria-labelledby="field-title_1732444864107" data-field-radcb="rb"
-                                            data-field-async="true" data-field-type="rd" data-field-name="Fitness Goal">
-                                            <div class="t-input-title t-descr t-descr_md" id="field-title_1732444864107"
-                                                data-redactor-toolbar="no" field="li_title__1732444864107"
-                                                style="color:;">
-                                                Your Fitness Goal</div>
-                                            <div class="t-input-block ">
-                                                <div class="t-radio__wrapper">
-                                                    <label class="t-radio__item t-radio__control t-text t-text_xs"
-                                                        style="">
-                                                        <input type="radio" name="Fitness Goal" value="Weight Loss"
-                                                            id="goalWeightLoss" class="t-radio js-tilda-rule">
-                                                        <div class="t-radio__indicator"></div> <span>Weight Loss</span>
-                                                    </label>
-                                                    <label class="t-radio__item t-radio__control t-text t-text_xs"
-                                                        style="">
-                                                        <input type="radio" name="Fitness Goal" value="Muscle Building"
-                                                            id="goalMuscleBuilding" class="t-radio js-tilda-rule">
-                                                        <div class="t-radio__indicator"></div> <span>Muscle
-                                                            Building</span>
-                                                    </label>
-                                                    <label class="t-radio__item t-radio__control t-text t-text_xs"
-                                                        style="">
-                                                        <input type="radio" name="Fitness Goal" value="General Health"
-                                                            id="goalGeneralHealth" class="t-radio js-tilda-rule">
-                                                        <div class="t-radio__indicator"></div> <span>General
-                                                            Health</span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="t-input-error" aria-live="polite" id="error_1732444864107">
-                                            </div>
-                                        </div>
-
-                                        <!-- Calculate button at the end of all calculation fields -->
-                                        <div class="calculation-button-container">
-                                            <button type="button" id="calculateButton" class="t-submit"
-                                                style="color: var(--color-bg); background-color: var(--color-primary); padding:10px 20px; white-space:normal; line-height:1.4; height:auto;">
-                                                Calculate Calories
-                                            </button>
-                                        </div>
-                                    </div>
-
-                                    <!-- Dietary preferences section -->
-                                    <div class=" t-input-group t-input-group_rd " data-input-lid="1732444954654"
-                                        role="group" aria-labelledby="field-title_1732444954654" data-field-radcb="cb"
-                                        data-field-async="true" data-field-type="rd"
-                                        data-field-name="Dietary Preferences">
-                                        <div class="t-input-title t-descr t-descr_md" id="field-title_1732444954654"
-                                            data-redactor-toolbar="no" field="li_title__1732444954654" style="color:;">
-                                            Dietary Preferences</div>
-                                        <div class="t-input-block ">
-                                            <input type="hidden" class="t-checkboxes__hiddeninput js-tilda-rule"
-                                                name="Dietary Preferences" tabindex="-1" value="">
-                                            <ul class="t-checkboxes__wrapper">
-                                                <li class="t-checkboxes__item">
-                                                    <label class="t-checkbox__control t-text t-text_xs" style="">
-                                                        <input type="checkbox" value="Vegetarian" class="t-checkbox">
-                                                        <div class="t-checkbox__indicator"></div>
-                                                        <span>Vegetarian</span>
-                                                    </label>
-                                                </li>
-                                                <li class="t-checkboxes__item">
-                                                    <label class="t-checkbox__control t-text t-text_xs" style="">
-                                                        <input type="checkbox" value="Vegan" class="t-checkbox">
-                                                        <div class="t-checkbox__indicator"></div> <span>Vegan</span>
-                                                    </label>
-                                                </li>
-                                                <li class="t-checkboxes__item">
-                                                    <label class="t-checkbox__control t-text t-text_xs" style="">
-                                                        <input type="checkbox" value="Gluten-Free" class="t-checkbox">
-                                                        <div class="t-checkbox__indicator"></div>
-                                                        <span>Gluten-Free</span>
-                                                    </label>
-                                                </li>
-                                                <li class="t-checkboxes__item">
-                                                    <label class="t-checkbox__control t-text t-text_xs" style="">
-                                                        <input type="checkbox" value="Dairy-Free" class="t-checkbox">
-                                                        <div class="t-checkbox__indicator"></div>
-                                                        <span>Dairy-Free</span>
-                                                    </label>
-                                                </li>
-                                                <li class="t-checkboxes__item">
-                                                    <label class="t-checkbox__control t-text t-text_xs" style="">
-                                                        <input type="checkbox" value="Keto" class="t-checkbox">
-                                                        <div class="t-checkbox__indicator"></div> <span>Keto</span>
-                                                    </label>
-                                                </li>
-                                            </ul>
-                                            <script>
-                                                t_onReady(function () {
-                                                    t_onFuncLoad('t_loadJsFile', function () {
-                                                        t_loadJsFile('https://static.tildacdn.com/js/tilda-variant-select-1.0.min.js',
-                                                            function () {
-                                                                t_onFuncLoad('t_input_checkboxes_init',
-                                                                    function () {
-                                                                        t_input_checkboxes_init('830381165', '1732444954654');
-                                                                    })
-                                                            })
-                                                    });
-                                                });
-                                            </script>
-                                        </div>
-                                        <div class="t-input-error" aria-live="polite" id="error_1732444954654"></div>
-                                    </div>
-
-                                    <!-- Cuisine preferences section -->
-                                    <div class="t-input-group t-input-group_rd" data-input-lid="1732444954655"
-                                        role="group" aria-labelledby="field-title_1732444954655" data-field-radcb="cb"
-                                        data-field-async="true" data-field-type="rd"
-                                        data-field-name="Cuisine Preferences">
-                                        <div class="t-input-title t-descr t-descr_md" id="field-title_1732444954655"
-                                            data-redactor-toolbar="no" field="li_title__1732444954655" style="color:;">
-                                            Cuisine Preferences
-                                        </div>
-                                        <div class="t-input-block">
-                                            <input type="hidden" class="t-checkboxes__hiddeninput js-tilda-rule"
-                                                name="Cuisine Preferences" tabindex="-1" value="">
-                                            <ul class="t-checkboxes__wrapper">
-                                                <li class="t-checkboxes__item">
-                                                    <label class="t-checkbox__control t-text t-text_xs" style="">
-                                                        <input type="checkbox" value="Indian" class="t-checkbox">
-                                                        <div class="t-checkbox__indicator"></div>
-                                                        <span>Indian</span>
-                                                    </label>
-                                                </li>
-                                                <li class="t-checkboxes__item">
-                                                    <label class="t-checkbox__control t-text t-text_xs" style="">
-                                                        <input type="checkbox" value="Italian" class="t-checkbox">
-                                                        <div class="t-checkbox__indicator"></div>
-                                                        <span>Italian</span>
-                                                    </label>
-                                                </li>
-                                                <li class="t-checkboxes__item">
-                                                    <label class="t-checkbox__control t-text t-text_xs" style="">
-                                                        <input type="checkbox" value="Mexican" class="t-checkbox">
-                                                        <div class="t-checkbox__indicator"></div>
-                                                        <span>Mexican</span>
-                                                    </label>
-                                                </li>
-                                                <li class="t-checkboxes__item">
-                                                    <label class="t-checkbox__control t-text t-text_xs" style="">
-                                                        <input type="checkbox" value="Japanese" class="t-checkbox">
-                                                        <div class="t-checkbox__indicator"></div>
-                                                        <span>Japanese</span>
-                                                    </label>
-                                                </li>
-                                                <li class="t-checkboxes__item">
-                                                    <label class="t-checkbox__control t-text t-text_xs" style="">
-                                                        <input type="checkbox" value="Afro Caribbean"
-                                                            class="t-checkbox">
-                                                        <div class="t-checkbox__indicator"></div>
-                                                        <span>Afro Caribbean</span>
-                                                    </label>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="t-input-error" aria-live="polite" id="error_1732444954655"></div>
-                                    </div>
-
-                                    <div class="t-form__submit">
-                                        <button type="submit" class="t-submit"
-                                            style="color: var(--color-bg); background-color: var(--color-primary);"
-                                            data-field="buttontitle" data-buttonfieldset="button">
-                                            Discover Your Perfect Meal Plan </button>
-                                    </div>
-                                </div>
-                            </form>
-                            <!-- Script to toggle the calculation fields and handle calculations -->
-                            <script>
-                                t_onReady(function () {
-                                    document.getElementById('calculateGoalsBtn').addEventListener('click', function () {
-                                        document.getElementById('goalCalculatorFields').classList.add('visible');
-                                        document.getElementById('fitnessGoalsSection').classList.add('visible');
-                                    });
-
-                                    document.getElementById('calculateButton').addEventListener('click', function () {
-                                        // Get input values
-                                        const height = parseInt(document.getElementById('heightInput').value) || 0;
-                                        const weight = parseInt(document.getElementById('weightInput').value) || 0;
-                                        const gender = document.getElementById('genderSelect').value;
-                                        const bodyType = document.getElementById('bodyTypeSelect').value;
-
-                                        // Get fitness goal
-                                        let fitnessGoal = '';
-                                        const goals = ['goalWeightLoss', 'goalMuscleBuilding', 'goalGeneralHealth'];
-                                        for (const goalId of goals) {
-                                            if (document.getElementById(goalId).checked) {
-                                                fitnessGoal = document.getElementById(goalId).value;
-                                                break;
-                                            }
-                                        }
-
-                                        // Simple calculation (in a real app, this would be more sophisticated)
-                                        // Base calculation using BMR formula (Mifflin-St Jeor)
-                                        let calories = 0;
-
-                                        if (gender === 'Male') {
-                                            calories = 10 * weight + 6.25 * height - 5 * 30 + 5; // Assuming age 30
-                                        } else if (gender === 'Female') {
-                                            calories = 10 * weight + 6.25 * height - 5 * 30 - 161; // Assuming age 30
-                                        } else {
-                                            // Default/other gender
-                                            calories = 10 * weight + 6.25 * height - 5 * 30 - 78; // Average
-                                        }
-
-                                        // Adjust for body type
-                                        if (bodyType === 'Ectomorph') {
-                                            calories *= 1.1; // Higher metabolism
-                                        } else if (bodyType === 'Endomorph') {
-                                            calories *= 0.9; // Lower metabolism
-                                        }
-
-                                        // Adjust for fitness goal
-                                        if (fitnessGoal === 'Weight Loss') {
-                                            calories *= 0.8; // Caloric deficit
-                                        } else if (fitnessGoal === 'Muscle Building') {
-                                            calories *= 1.2; // Caloric surplus
-                                        } else if (fitnessGoal === 'Athletic Performance') {
-                                            calories *= 1.1; // Slightly higher for performance
-                                        }
-
-                                        // Round to nearest 50 for a cleaner number
-                                        calories = Math.round(calories / 50) * 50;
-
-                                        // If calculation fails or inputs missing, default to 2500
-                                        if (!calories || isNaN(calories) || calories < 1200) {
-                                            calories = 2500;
-                                        }
-
-                                        // Set the calculated value
-                                        document.getElementById('caloriesInput').value = calories;
-
-                                        // Scroll back to the calories input to show the result
-                                        document.getElementById('caloriesInput').scrollIntoView({ behavior: 'smooth' });
-                                    });
-                                });
-                            </script>
-
-                            <!-- Update the CSS to include the calculation button styling -->
-                            <style>
-                                .nutrition-goals-grid {
-                                    display: grid;
-                                    grid-template-columns: repeat(2, 1fr);
-                                    gap: 15px;
-                                    margin-bottom: 15px;
-                                }
-
-                                .calculation-fields-grid {
-                                    display: grid;
-                                    grid-template-columns: repeat(2, 1fr);
-                                    gap: 15px;
-                                    margin-bottom: 15px;
-                                }
-
-                                .nutrition-goal-item,
-                                .calculation-field-item {
-                                    display: flex;
-                                    flex-direction: column;
-                                }
-
-                                .calculate-goals-link {
-                                    margin: 10px 0 20px;
-                                }
-
-                                .nutritional-goals-section {
-                                    border-top: 1px solid rgba(0, 0, 0, 0.1);
-                                    padding-top: 25px;
-                                    margin-top: 20px;
-                                }
-
-                                .calculation-button-container {
-                                    display: flex;
-                                    justify-content: center;
-                                    margin: 20px 0;
-                                }
-
-                                @media (max-width: 640px) {
-
-                                    .nutrition-goals-grid,
-                                    .calculation-fields-grid {
-                                        grid-template-columns: 1fr;
-                                    }
-                                }
-                            </style>
-
-                            <!-- Script to toggle the calculation fields -->
-
-                            <!-- ...existing placeholder styles... -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
