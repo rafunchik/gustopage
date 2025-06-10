@@ -293,6 +293,12 @@
             margin-bottom: 60px;
         }
 
+        @media (min-width: 1200px) {
+            .steps {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
         .step {
             position: relative;
         }
@@ -320,6 +326,252 @@
         .step p {
             color: var(--text-light);
             line-height: 1.6;
+        }
+
+        .step-mockup {
+            width: 240px;
+            height: 420px;
+            margin: 0 auto 20px;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+            background: #000;
+            position: relative;
+            border: 4px solid #333;
+        }
+
+        .step-mockup::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #333;
+            border-radius: 3px;
+            z-index: 10;
+        }
+
+        .mockup-content {
+            padding: 25px 20px 20px;
+            height: 100%;
+            background: #fafafa;
+            display: flex;
+            flex-direction: column;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 0;
+            font-size: 12px;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 12px;
+        }
+
+        .app-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px 20px;
+            font-size: 18px;
+            font-weight: 600;
+            margin: -20px -20px 18px -20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .goal-card {
+            background: white;
+            border-radius: 10px;
+            padding: 12px;
+            margin: 6px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+
+        .goal-label {
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .goal-value {
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .generate-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 16px;
+            font-weight: 600;
+            font-size: 13px;
+            margin: 10px 0;
+            width: 100%;
+        }
+
+        .meal-card {
+            background: white;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 4px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .meal-emoji {
+            font-size: 20px;
+        }
+
+        .meal-details {
+            flex: 1;
+        }
+
+        .meal-title {
+            font-weight: 600;
+            font-size: 12px;
+            color: #333;
+            margin-bottom: 2px;
+        }
+
+        .meal-info {
+            font-size: 10px;
+            color: #666;
+        }
+
+        .progress-container {
+            background: white;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 4px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+
+        .progress-label {
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 6px;
+        }
+
+        .progress-bar {
+            background: #f0f0f0;
+            border-radius: 10px;
+            height: 8px;
+            overflow: hidden;
+            margin-bottom: 4px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-size: 10px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .recipe-image {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(45deg, #ff9a56, #ff6b35);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .recipe-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="30" r="3" fill="rgba(255,255,255,0.3)"/><circle cx="70" cy="20" r="2" fill="rgba(255,255,255,0.4)"/><circle cx="80" cy="60" r="4" fill="rgba(255,255,255,0.2)"/><circle cx="30" cy="70" r="2.5" fill="rgba(255,255,255,0.35)"/></svg>');
+        }
+
+        .recipe-info {
+            background: white;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 4px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+
+        .recipe-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .recipe-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .recipe-stat {
+            font-size: 10px;
+            color: #666;
+        }
+
+        .recipe-ingredients {
+            font-size: 9px;
+            color: #888;
+            line-height: 1.3;
+        }
+
+        .loading-dots {
+            display: flex;
+            gap: 8px;
+            margin: 20px 0;
+        }
+
+        .loading-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            animation: loading 1.4s infinite ease-in-out;
+        }
+
+        .loading-dot:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+
+        .loading-dot:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+
+        @keyframes loading {
+
+            0%,
+            80%,
+            100% {
+                transform: scale(0);
+            }
+
+            40% {
+                transform: scale(1);
+            }
         }
 
         /* Pricing Section */
@@ -494,35 +746,7 @@
             width: auto;
         }
 
-        .nutrition-goals {
-            background: var(--bg-light);
-            padding: 30px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
 
-        .calculator-section {
-            background: var(--bg-light);
-            padding: 30px;
-            border-radius: 8px;
-            margin-top: 20px;
-            opacity: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .calculator-section.visible {
-            opacity: 1;
-            max-height: 1000px;
-        }
-
-        .calculate-link {
-            color: var(--primary-color);
-            text-decoration: underline;
-            cursor: pointer;
-            font-weight: 500;
-        }
 
         .btn-primary {
             background: var(--gradient);
@@ -557,6 +781,35 @@
         .btn-secondary:hover {
             background: var(--primary-color);
             color: white;
+        }
+
+        /* App Store Buttons */
+        .app-store-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .app-store-btn {
+            display: inline-block;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .app-store-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .app-store-btn img {
+            height: 70px;
+            width: 200px;
+            display: block;
+            object-fit: cover;
+            object-position: center;
         }
 
         /* Responsive */
@@ -715,22 +968,160 @@
             <h2>Create Your Meal Plan in Seconds</h2>
             <div class="steps">
                 <div class="step">
+                    <div class="step-mockup">
+                        <div class="mockup-content">
+                            <div class="status-bar">
+                                <span>9:41</span>
+                                <span>🔋100%</span>
+                            </div>
+                            <div class="app-header">
+                                <span>Goals Setup</span>
+                                <span>✓</span>
+                            </div>
+                            <div class="goal-card">
+                                <div class="goal-label">Macro Goal</div>
+                                <div class="goal-value">High Protein, Low Carb</div>
+                            </div>
+                            <div class="goal-card">
+                                <div class="goal-label">Dietary Preferences</div>
+                                <div class="goal-value">Vegetarian, Gluten-Free</div>
+                            </div>
+                            <div class="goal-card">
+                                <div class="goal-label">Cuisine Preference</div>
+                                <div class="goal-value">Indian, Mediterranean</div>
+                            </div>
+                            <div class="goal-card">
+                                <div class="goal-label">Daily Calories</div>
+                                <div class="goal-value">1650 calories</div>
+                            </div>
+                            <div class="goal-card">
+                                <div class="goal-label">Exclusions</div>
+                                <div class="goal-value">Nuts, Shellfish</div>
+                            </div>
+                            <button class="generate-btn">Save Goals</button>
+                        </div>
+                    </div>
                     <div class="step-number">1</div>
                     <h3>Set Your Goals</h3>
                     <p>Tell us your fitness targets and dietary preferences</p>
                 </div>
                 <div class="step">
+                    <div class="step-mockup">
+                        <div class="mockup-content">
+                            <div class="status-bar">
+                                <span>9:42</span>
+                                <span>🔋99%</span>
+                            </div>
+                            <div class="app-header">
+                                <span>Today's Meals</span>
+                                <span>🍽️</span>
+                            </div>
+                            <div class="meal-card">
+                                <div class="meal-emoji">🍛</div>
+                                <div class="meal-details">
+                                    <div class="meal-title">Masala Oats Bowl</div>
+                                    <div class="meal-info">320 cal • 12g protein</div>
+                                </div>
+                            </div>
+                            <div class="meal-card">
+                                <div class="meal-emoji">🍗</div>
+                                <div class="meal-details">
+                                    <div class="meal-title">Chicken Tikka with Rice</div>
+                                    <div class="meal-info">580 cal • 35g protein</div>
+                                </div>
+                            </div>
+                            <div class="meal-card">
+                                <div class="meal-emoji">🥘</div>
+                                <div class="meal-details">
+                                    <div class="meal-title">Dal Tadka & Roti</div>
+                                    <div class="meal-info">420 cal • 18g protein</div>
+                                </div>
+                            </div>
+                            <div class="meal-card">
+                                <div class="meal-emoji">🍨</div>
+                                <div class="meal-details">
+                                    <div class="meal-title">Kheer (Small Bowl)</div>
+                                    <div class="meal-info">240 cal • 6g protein</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="step-number">2</div>
-                    <h3>Click Generate</h3>
-                    <p>Our AI creates your personalized meal plan</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Get Your Plan</h3>
+                    <h3>Get Your Weekly Plan</h3>
                     <p>Receive structured, delicious meals ready to cook</p>
                 </div>
+                <div class="step">
+                    <div class="step-mockup">
+                        <div class="mockup-content">
+                            <div class="status-bar">
+                                <span>9:43</span>
+                                <span>🔋99%</span>
+                            </div>
+                            <div class="app-header">
+                                <span>Dal Tadka Recipe</span>
+                                <span>🥘</span>
+                            </div>
+                            <div class="recipe-image">
+                                🥘
+                            </div>
+                            <div class="recipe-info">
+                                <div class="recipe-title">Dal Tadka & Roti</div>
+                                <div class="recipe-stats">
+                                    <span class="recipe-stat">⏱️ 30 min</span>
+                                    <span class="recipe-stat">👥 2 servings</span>
+                                    <span class="recipe-stat">🔥 420 cal</span>
+                                </div>
+                                <div class="recipe-ingredients">
+                                    Toor dal, onions, tomatoes, ginger-garlic paste, cumin seeds, mustard seeds,
+                                    turmeric, red chili powder, garam masala, wheat flour, oil, salt
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-number">3</div>
+                    <h3>View Recipe Details</h3>
+                    <p>Get step-by-step cooking instructions and ingredients</p>
+                </div>
+                <div class="step">
+                    <div class="step-mockup">
+                        <div class="mockup-content">
+                            <div class="status-bar">
+                                <span>9:44</span>
+                                <span>🔋98%</span>
+                            </div>
+                            <div class="app-header">
+                                <span>Progress</span>
+                                <span>📊</span>
+                            </div>
+                            <div class="progress-container">
+                                <div class="progress-label">Weekly Goal Progress</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 75%;"></div>
+                                </div>
+                                <div class="progress-text">5 of 7 days completed</div>
+                            </div>
+                            <div class="progress-container">
+                                <div class="progress-label">Calories Today</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%;"></div>
+                                </div>
+                                <div class="progress-text">1,405 / 1,650 calories</div>
+                            </div>
+                            <div class="progress-container">
+                                <div class="progress-label">Weight Loss Progress</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 60%;"></div>
+                                </div>
+                                <div class="progress-text">3kg lost of 5kg goal</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-number">4</div>
+                    <h3>Track Progress</h3>
+                    <p>Monitor your goals and celebrate achievements</p>
+                </div>
             </div>
-            <a href="#meal-form" class="btn btn-outline">Start Free — No Card Required</a>
+            <a href="#meal-form" class="btn">Start Free — No Card Required</a>
         </div>
     </section>
 
@@ -765,244 +1156,35 @@
         </div>
     </section>
 
-    <!-- Form Section -->
+    <!-- Download App Section -->
     <section class="form-section section" id="meal-form">
         <div class="container">
-            <h2>Discover Your Perfect Meal Plan — Today</h2>
-            <p class="subtitle">Complete the form below to get your personalized meal plan</p>
+            <h2>Download GustoGoals Today</h2>
+            <p class="subtitle">Start your personalized meal planning journey with our mobile app</p>
 
-            <form class="meal-form" action="" method="POST">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="Name" placeholder="Full Name" required>
+            <div style="text-align: center; margin: 60px auto; max-width: 600px;">
+                <p style="margin-bottom: 30px; font-size: 1.4rem; font-weight: 600; color: var(--text-color);">
+                    Available on iOS and Android
+                </p>
+                <div class="app-store-buttons">
+                    <a href="https://apps.apple.com/app/gustogoals" class="app-store-btn" target="_blank">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1590969600&h=8e86e7f68ec6ed9565b8af6c2522b2e5"
+                            alt="Download on the App Store">
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.gustogoals" class="app-store-btn"
+                        target="_blank">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                            alt="Get it on Google Play">
+                    </a>
                 </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="Email" placeholder="youremail@example.com" required>
-                        <small>We'll send your meal plans here</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="Phone" placeholder="+44 123 456 7890">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="social">Social Media Handle</label>
-                    <input type="text" id="social" name="Social Media Handle" placeholder="@yourusername">
-                </div>
-
-                <!-- Nutrition Goals Section -->
-                <div class="nutrition-goals">
-                    <h3>Know your goals?</h3>
-                    <div class="form-row" style="margin-top: 20px;">
-                        <div class="form-group">
-                            <label for="calories">Calories</label>
-                            <input type="number" id="calories" name="Calories" placeholder="e.g., 2000">
-                        </div>
-                        <div class="form-group">
-                            <label for="carbs">Carbs (g)</label>
-                            <input type="number" id="carbs" name="Carbs" placeholder="90" value="90">
-                        </div>
-                        <div class="form-group">
-                            <label for="protein">Protein (g)</label>
-                            <input type="number" id="protein" name="Protein" placeholder="90" value="90">
-                        </div>
-                        <div class="form-group">
-                            <label for="fat">Fat (g)</label>
-                            <input type="number" id="fat" name="Fat" placeholder="40" value="40">
-                        </div>
-                    </div>
-
-                    <p style="margin-top: 15px;">
-                        <span class="calculate-link" id="showCalculator">Not sure? Let's calculate it</span>
-                    </p>
-                </div>
-
-                <!-- Calculator Section -->
-                <div class="calculator-section" id="calculatorSection">
-                    <h3>To calculate your goals, we need a bit more info:</h3>
-
-                    <div class="form-row" style="margin-top: 20px;">
-                        <div class="form-group">
-                            <label for="height">Height (cm)</label>
-                            <input type="number" id="height" name="Height" placeholder="e.g., 175">
-                        </div>
-                        <div class="form-group">
-                            <label for="weight">Weight (kg)</label>
-                            <input type="number" id="weight" name="Weight" placeholder="e.g., 70">
-                        </div>
-                        <div class="form-group">
-                            <label for="gender">Gender</label>
-                            <select id="gender" name="Gender">
-                                <option value="">Select</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="bodyType">Body Type</label>
-                            <select id="bodyType" name="BodyType">
-                                <option value="">Select</option>
-                                <option value="Ectomorph">Ectomorph (Slim)</option>
-                                <option value="Mesomorph">Mesomorph (Athletic)</option>
-                                <option value="Endomorph">Endomorph (Solid)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group" style="margin-top: 20px;">
-                        <label>Your Fitness Goal</label>
-                        <div class="radio-group">
-                            <div class="radio-item">
-                                <input type="radio" id="weightLoss" name="Fitness Goal" value="Weight Loss">
-                                <label for="weightLoss">Weight Loss</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="muscleBuilding" name="Fitness Goal" value="Muscle Building">
-                                <label for="muscleBuilding">Muscle Building</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="generalHealth" name="Fitness Goal" value="General Health">
-                                <label for="generalHealth">General Health</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button type="button" class="btn-secondary" id="calculateBtn" style="margin-top: 20px;">
-                        Calculate Calories
-                    </button>
-                </div>
-
-                <!-- Dietary Preferences -->
-                <div class="form-group">
-                    <label>Dietary Preferences</label>
-                    <div class="checkbox-grid" style="margin-top: 15px;">
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="vegetarian" name="Dietary Preferences" value="Vegetarian">
-                            <label for="vegetarian">Vegetarian</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="vegan" name="Dietary Preferences" value="Vegan">
-                            <label for="vegan">Vegan</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="glutenFree" name="Dietary Preferences" value="Gluten-Free">
-                            <label for="glutenFree">Gluten-Free</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="dairyFree" name="Dietary Preferences" value="Dairy-Free">
-                            <label for="dairyFree">Dairy-Free</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="keto" name="Dietary Preferences" value="Keto">
-                            <label for="keto">Keto</label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Cuisine Preferences -->
-                <div class="form-group">
-                    <label>Cuisine Preferences</label>
-                    <div class="checkbox-grid" style="margin-top: 15px;">
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="indian" name="Cuisine Preferences" value="Indian">
-                            <label for="indian">Indian</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="italian" name="Cuisine Preferences" value="Italian">
-                            <label for="italian">Italian</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="mexican" name="Cuisine Preferences" value="Mexican">
-                            <label for="mexican">Mexican</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="japanese" name="Cuisine Preferences" value="Japanese">
-                            <label for="japanese">Japanese</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="afroCaribbean" name="Cuisine Preferences" value="Afro Caribbean">
-                            <label for="afroCaribbean">Afro Caribbean</label>
-                        </div>
-                    </div>
-                </div>
-
-                <button type="submit" class="btn-primary">
-                    🍽️ Discover Your Perfect Meal Plan
-                </button>
-            </form>
+                <p style="margin-top: 20px; color: var(--text-light); font-size: 1rem;">
+                    Free to download • No credit card required
+                </p>
+            </div>
         </div>
     </section>
 
     <script>
-        // Show calculator section
-        document.getElementById('showCalculator').addEventListener('click', function () {
-            document.getElementById('calculatorSection').classList.add('visible');
-        });
-
-        // Calculate calories
-        document.getElementById('calculateBtn').addEventListener('click', function () {
-            const height = parseInt(document.getElementById('height').value) || 0;
-            const weight = parseInt(document.getElementById('weight').value) || 0;
-            const gender = document.getElementById('gender').value;
-            const bodyType = document.getElementById('bodyType').value;
-
-            // Get fitness goal
-            let fitnessGoal = '';
-            const goals = document.querySelectorAll('input[name="Fitness Goal"]');
-            for (const goal of goals) {
-                if (goal.checked) {
-                    fitnessGoal = goal.value;
-                    break;
-                }
-            }
-
-            // Simple BMR calculation (Mifflin-St Jeor)
-            let calories = 0;
-
-            if (gender === 'Male') {
-                calories = 10 * weight + 6.25 * height - 5 * 30 + 5; // Assuming age 30
-            } else if (gender === 'Female') {
-                calories = 10 * weight + 6.25 * height - 5 * 30 - 161; // Assuming age 30
-            } else {
-                calories = 10 * weight + 6.25 * height - 5 * 30 - 78; // Average
-            }
-
-            // Adjust for body type
-            if (bodyType === 'Ectomorph') {
-                calories *= 1.1;
-            } else if (bodyType === 'Endomorph') {
-                calories *= 0.9;
-            }
-
-            // Adjust for fitness goal
-            if (fitnessGoal === 'Weight Loss') {
-                calories *= 0.8;
-            } else if (fitnessGoal === 'Muscle Building') {
-                calories *= 1.2;
-            } else if (fitnessGoal === 'General Health') {
-                calories *= 1.1;
-            }
-
-            // Round to nearest 50
-            calories = Math.round(calories / 50) * 50;
-
-            // Default if calculation fails
-            if (!calories || isNaN(calories) || calories < 1200) {
-                calories = 2000;
-            }
-
-            // Set the calculated value
-            document.getElementById('calories').value = calories;
-
-            // Scroll back to calories input
-            document.getElementById('calories').scrollIntoView({ behavior: 'smooth' });
-        });
-
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
