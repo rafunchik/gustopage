@@ -66,8 +66,39 @@
         .hero {
             background: var(--gradient);
             color: white;
-            text-align: center;
             padding: 100px 0 80px;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            min-height: 500px;
+        }
+
+        .hero-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        .hero-image {
+            flex: 0 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .app-screenshot {
+            max-width: 420px;
+            height: auto;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transform: perspective(1000px) rotateY(-15deg) rotateX(2deg);
+            transition: transform 0.3s ease;
+        }
+
+        .app-screenshot:hover {
+            transform: perspective(1000px) rotateY(-10deg) rotateX(1deg) translateY(-10px);
         }
 
         .hero h1 {
@@ -88,9 +119,7 @@
             font-size: 1.1rem;
             margin-bottom: 50px;
             opacity: 0.8;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 500px;
         }
 
         .btn {
@@ -669,81 +698,93 @@
             left: 0;
         }
 
-        /* Form Section */
-        .form-section {
+        /* Download App Section */
+        .download-section {
             background: var(--bg-color);
+            text-align: center;
         }
 
-        .form-section h2 {
+        .download-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .download-section h2 {
             font-size: 2.5rem;
             font-weight: 700;
-            text-align: center;
             margin-bottom: 20px;
         }
 
-        .form-section .subtitle {
-            text-align: center;
+        .download-section .subtitle {
             font-size: 1.2rem;
             color: var(--text-light);
-            margin-bottom: 60px;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .meal-form {
-            max-width: 800px;
-            margin: 0 auto;
+        .download-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .feature-highlight {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: var(--bg-light);
+            border-radius: 12px;
+            text-align: left;
+        }
+
+        .highlight-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature-highlight p {
+            margin: 0;
+            font-weight: 500;
+            font-size: 0.9rem;
+            line-height: 1.3;
+            color: var(--text-color);
+        }
+
+        .cta-container {
             background: white;
             padding: 40px;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
 
-        .form-group {
-            margin-bottom: 25px;
+        .cta-text {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: var(--primary-color);
         }
 
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--text-color);
+        .cta-text strong {
+            font-weight: 700;
         }
 
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
+        .alternative-cta {
+            margin-top: 30px;
             font-size: 1rem;
-            transition: border-color 0.3s ease;
+            color: var(--text-light);
         }
 
-        .form-group input:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary-color);
+        .inline-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
         }
 
-        .form-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .checkbox-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-        }
-
-        .checkbox-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .checkbox-item input[type="checkbox"] {
-            width: auto;
+        .inline-link:hover {
+            text-decoration: underline;
         }
 
 
@@ -814,12 +855,37 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0 40px;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                gap: 40px;
+                min-height: auto;
+                text-align: center;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
 
             .hero .subtitle {
                 font-size: 1.1rem;
+            }
+
+            .app-screenshot {
+                max-width: 350px;
+                transform: none;
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            }
+
+            .app-screenshot:hover {
+                transform: translateY(-5px);
             }
 
             .container {
@@ -844,12 +910,24 @@
                 transform: none;
             }
 
-            .form-row {
+            .download-features {
                 grid-template-columns: 1fr;
+                gap: 15px;
             }
 
-            .checkbox-grid {
-                grid-template-columns: 1fr;
+            .feature-highlight {
+                text-align: center;
+                flex-direction: column;
+                gap: 8px;
+                padding: 20px 15px;
+            }
+
+            .feature-highlight p {
+                font-size: 1rem;
+            }
+
+            .cta-container {
+                padding: 30px 20px;
             }
         }
 
@@ -880,11 +958,19 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Save Hours Each Week with Smarter Meal Planning</h1>
-            <p class="subtitle">No time for perfect meal planning? Generic diets fail instantly.</p>
-            <p class="description">Stop the struggle. GustoGoals delivers <strong>personalized, delicious</strong> meal
-                plans fast – so you can eat less stress, achieve more.</p>
-            <a href="#meal-form" class="btn">Try It Now</a>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Save Hours Each Week with Smarter Meal Planning</h1>
+                    <p class="subtitle">No time for perfect meal planning? Generic diets fail instantly.</p>
+                    <p class="description">Stop the struggle. GustoGoals delivers <strong>personalized,
+                            delicious</strong> meal
+                        plans fast – so you can eat less stress, achieve more.</p>
+                    <a href="#download-app" class="btn">Download Free</a>
+                </div>
+                <div class="hero-image">
+                    <img src="images/app-screenshot.png" alt="GustoGoals App Screenshot" class="app-screenshot">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1121,7 +1207,7 @@
                     <p>Monitor your goals and celebrate achievements</p>
                 </div>
             </div>
-            <a href="#meal-form" class="btn">Start Free — No Card Required</a>
+            <a href="#download-app" class="btn">Download Free — No Card Required</a>
         </div>
     </section>
 
@@ -1150,48 +1236,37 @@
                         <li>Shopping lists included</li>
                         <li>Cancel anytime after trial</li>
                     </ul>
-                    <a href="#meal-form" class="btn">Start Free Week</a>
+                    <a href="#download-app" class="btn">Download Free</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Form Section -->
-    <section class="form-section section" id="meal-form">
+    <!-- Download App Section -->
+    <section class="download-section section" id="download-app">
         <div class="container">
-            <h2>Discover Your Perfect Meal Plan — Today</h2>
-            <p class="subtitle">Complete the form below to get your personalized meal plan</p>
+            <div class="download-content">
+                <h2>Start Your Free Week Today</h2>
+                <p class="subtitle">Download GustoGoals and get your first personalized meal plan absolutely free</p>
 
-            <form class="meal-form" action="" method="POST">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="Name" placeholder="Full Name" required>
+                <div class="download-features">
+                    <div class="feature-highlight">
+                        <span class="highlight-icon">🎯</span>
+                        <p>Personalized meal plans tailored to your goals</p>
+                    </div>
+                    <div class="feature-highlight">
+                        <span class="highlight-icon">⏱️</span>
+                        <p>Generate your weekly plan in under 30 seconds</p>
+                    </div>
+                    <div class="feature-highlight">
+                        <span class="highlight-icon">🌍</span>
+                        <p>Cuisines from around the world</p>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="Email" placeholder="youremail@example.com" required>
-                    <small>We'll send your meal plans here</small>
-                </div>
-
-                <div class="form-group">
-                    <label for="social">Social Media Handle</label>
-                    <input type="text" id="social" name="Social Media Handle" placeholder="@yourusername">
-                </div>
-
-                <div class="form-group" style="text-align: center; margin: 40px 0;">
-                    <p style="margin-bottom: 15px; color: var(--text-light);">
-                        Want to calculate your personalized nutrition goals?
-                    </p>
-                    <a href="calorie-calculator.html" class="btn-secondary"
-                        style="text-decoration: none; display: inline-block;">
-                        Calculate My Goals
-                    </a>
-                </div>
-
-                <div style="text-align: center; margin-top: 30px;">
-                    <p style="margin-bottom: 20px; font-size: 1.3rem; font-weight: 600; color: var(--text-color);">
-                        Available on Web, iOS and Android
+                <div class="cta-container">
+                    <p class="cta-text">
+                        <strong>Free for 1 week</strong> • No credit card required • Cancel anytime
                     </p>
                     <div class="app-store-buttons">
                         <a href="https://apps.apple.com/app/gustogoals" class="app-store-btn" target="_blank">
@@ -1204,8 +1279,12 @@
                                 alt="Get it on Google Play">
                         </a>
                     </div>
+                    <p class="alternative-cta">
+                        Want to calculate your personalized nutrition goals first?
+                        <a href="calorie-calculator.html" class="inline-link">Use our calculator →</a>
+                    </p>
                 </div>
-            </form>
+            </div>
         </div>
     </section>
 
