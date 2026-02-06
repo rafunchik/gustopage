@@ -18,8 +18,9 @@
     <link rel="icon" type="image/x-icon" sizes="32x32"
         href="https://static.tildacdn.com/tild3432-3536-4032-a239-653638356635/Frame_2087327239.jpg" />
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    <!-- Fonts: Poppins (headers) & Inter (body) - GustoGoals brand -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"
         rel="stylesheet">
 
     <style>
@@ -30,15 +31,29 @@
         }
 
         :root {
-            --primary-color: #628D60;
-            --secondary-color: #f5a623;
-            --text-color: #333;
-            --text-light: #666;
-            --bg-color: #fff;
-            --bg-light: #f8f9fa;
+            /* GustoGoals brand palette (from reference) */
+            --color-gusto-leaf: #4CAF50;
+            --color-gusto-lime: #8BC34A;
+            --color-deep-kale: #2E4835;
+            --color-cultured-cream: #F7FDF9;
+            --color-clinical-white: #FFFFFF;
+            --color-slate: #64748B;
+            --color-zest-orange: #FF9800;
+            --radius-md: 16px;
+            --radius-pill: 50px;
+            --shadow-soft: 0 4px 20px rgba(76, 175, 80, 0.15);
+            --shadow-hover: 0 8px 25px rgba(76, 175, 80, 0.25);
+            --gradient-primary: linear-gradient(135deg, var(--color-gusto-leaf) 0%, var(--color-gusto-lime) 100%);
+            /* Legacy names mapped to brand */
+            --primary-color: var(--color-gusto-leaf);
+            --secondary-color: var(--color-gusto-lime);
+            --text-color: var(--color-deep-kale);
+            --text-light: var(--color-slate);
+            --bg-color: var(--color-cultured-cream);
+            --bg-light: var(--color-cultured-cream);
             --border-color: #e1e5e9;
-            --success-color: #28a745;
-            --gradient: linear-gradient(135deg, #628D60 0%, #4a6b48 100%);
+            --success-color: var(--color-gusto-leaf);
+            --gradient: var(--gradient-primary);
         }
 
         body {
@@ -46,6 +61,16 @@
             line-height: 1.6;
             color: var(--text-color);
             background: var(--bg-color);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--color-deep-kale);
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
 
         .container {
@@ -62,11 +87,12 @@
             padding: 40px 0;
         }
 
-        /* Hero Section */
+        /* Hero Section - GustoGoals reference style */
         .hero {
-            background: var(--gradient);
-            color: white;
-            padding: 100px 0 80px;
+            background: linear-gradient(135deg, var(--color-deep-kale) 0%, #1a2e21 100%);
+            color: var(--color-clinical-white);
+            padding: 140px 0 100px;
+            overflow: hidden;
         }
 
         .hero-content {
@@ -74,72 +100,78 @@
             align-items: center;
             gap: 60px;
             min-height: 500px;
+            text-align: left;
         }
 
         .hero-text {
             flex: 1;
-            text-align: left;
         }
 
         .hero-image {
-            flex: 0 0 auto;
+            flex: 1;
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .app-screenshot {
-            max-width: 420px;
+        .hero-image .app-screenshot {
+            width: 100%;
+            max-width: 600px;
             height: auto;
-            border-radius: 25px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            transform: perspective(1000px) rotateY(-15deg) rotateX(2deg);
+            border-radius: var(--radius-md);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: rotate(2deg);
             transition: transform 0.3s ease;
         }
 
-        .app-screenshot:hover {
-            transform: perspective(1000px) rotateY(-10deg) rotateX(1deg) translateY(-10px);
+        .hero-image .app-screenshot:hover {
+            transform: rotate(0deg) scale(1.02);
         }
 
         .hero h1 {
+            font-family: 'Poppins', sans-serif;
             font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
+            font-weight: 700;
+            margin-bottom: 24px;
             line-height: 1.1;
+            color: var(--color-clinical-white);
         }
 
         .hero .subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
+            font-size: 1.25rem;
+            margin-bottom: 24px;
             opacity: 0.9;
             font-weight: 400;
+            max-width: 600px;
         }
 
         .hero .description {
             font-size: 1.1rem;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             opacity: 0.8;
-            max-width: 500px;
+            max-width: 600px;
         }
 
         .btn {
             display: inline-block;
-            padding: 18px 40px;
-            background: white;
-            color: var(--primary-color);
+            padding: 14px 32px;
+            background: var(--gradient-primary);
+            color: white;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: var(--radius-pill);
+            font-family: 'Poppins', sans-serif;
             font-weight: 600;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--shadow-soft);
         }
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            box-shadow: var(--shadow-hover);
         }
 
         .btn-outline {
@@ -324,7 +356,7 @@
 
         @media (min-width: 1200px) {
             .steps {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(5, 1fr);
             }
         }
 
@@ -369,17 +401,11 @@
             border: 4px solid #333;
         }
 
-        .step-mockup::before {
-            content: '';
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: #333;
-            border-radius: 3px;
-            z-index: 10;
+        .step-mockup img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .mockup-content {
@@ -603,101 +629,6 @@
             }
         }
 
-        /* Pricing Section */
-        .pricing {
-            background: var(--bg-light);
-            text-align: center;
-        }
-
-        .pricing h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .pricing .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin-bottom: 60px;
-        }
-
-        .pricing-cards {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .pricing-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            position: relative;
-        }
-
-        .pricing-card.featured {
-            border: 3px solid var(--primary-color);
-            transform: scale(1.05);
-        }
-
-        .pricing-card.featured::before {
-            content: "Best Choice";
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .price-header h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .price {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
-        .price .currency {
-            font-size: 1.5rem;
-            vertical-align: top;
-        }
-
-        .price .period {
-            font-size: 1rem;
-            font-weight: 400;
-            color: var(--text-light);
-        }
-
-        .price-features {
-            list-style: none;
-            margin: 30px 0;
-            text-align: left;
-        }
-
-        .price-features li {
-            padding: 8px 0;
-            position: relative;
-            padding-left: 25px;
-        }
-
-        .price-features li::before {
-            content: "✅";
-            position: absolute;
-            left: 0;
-        }
-
         /* Download App Section */
         .download-section {
             background: var(--bg-color);
@@ -805,7 +736,7 @@
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(98, 141, 96, 0.3);
+            box-shadow: 0 6px 20px rgba(110, 139, 61, 0.3);
         }
 
         .btn-secondary {
@@ -878,13 +809,13 @@
                 font-size: 1.1rem;
             }
 
-            .app-screenshot {
+            .hero-image .app-screenshot {
                 max-width: 350px;
                 transform: none;
                 box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
             }
 
-            .app-screenshot:hover {
+            .hero-image .app-screenshot:hover {
                 transform: translateY(-5px);
             }
 
@@ -900,14 +831,6 @@
 
             .features-grid {
                 grid-template-rows: auto;
-            }
-
-            .pricing-cards {
-                grid-template-columns: 1fr;
-            }
-
-            .pricing-card.featured {
-                transform: none;
             }
 
             .download-features {
@@ -965,10 +888,10 @@
                     <p class="description">Stop the struggle. GustoGoals delivers <strong>personalized,
                             delicious</strong> meal
                         plans fast – so you can eat less stress, achieve more.</p>
-                    <a href="#download-app" class="btn">Download Free</a>
+                    <a href="#download-app" class="btn">Join the tester list</a>
                 </div>
                 <div class="hero-image">
-                    <img src="images/app-screenshot.png" alt="GustoGoals App Screenshot" class="app-screenshot">
+                    <img src="images/hero.jpeg" alt="GustoGoals App Screenshot" class="app-screenshot">
                 </div>
             </div>
         </div>
@@ -1055,199 +978,56 @@
             <div class="steps">
                 <div class="step">
                     <div class="step-mockup">
-                        <div class="mockup-content">
-                            <div class="status-bar">
-                                <span>9:41</span>
-                                <span>🔋100%</span>
-                            </div>
-                            <div class="app-header">
-                                <span>Goals Setup</span>
-                                <span>✓</span>
-                            </div>
-                            <div class="goal-card">
-                                <div class="goal-label">Macro Goal</div>
-                                <div class="goal-value">High Protein, Low Carb</div>
-                            </div>
-                            <div class="goal-card">
-                                <div class="goal-label">Dietary Preferences</div>
-                                <div class="goal-value">Vegetarian, Gluten-Free</div>
-                            </div>
-                            <div class="goal-card">
-                                <div class="goal-label">Cuisine Preference</div>
-                                <div class="goal-value">Indian, Mediterranean</div>
-                            </div>
-                            <div class="goal-card">
-                                <div class="goal-label">Daily Calories</div>
-                                <div class="goal-value">1650 calories</div>
-                            </div>
-                            <div class="goal-card">
-                                <div class="goal-label">Exclusions</div>
-                                <div class="goal-value">Nuts, Shellfish</div>
-                            </div>
-                            <button class="generate-btn">Save Goals</button>
-                        </div>
+                        <img src="images/journey-goals.png" alt="Goals – set macro targets and preferences">
                     </div>
                     <div class="step-number">1</div>
                     <h3>Set Your Goals</h3>
-                    <p>Tell us your fitness targets and dietary preferences</p>
+                    <p>Set macro targets, meals per day, and dietary & cuisine preferences</p>
                 </div>
                 <div class="step">
                     <div class="step-mockup">
-                        <div class="mockup-content">
-                            <div class="status-bar">
-                                <span>9:42</span>
-                                <span>🔋99%</span>
-                            </div>
-                            <div class="app-header">
-                                <span>Today's Meals</span>
-                                <span>🍽️</span>
-                            </div>
-                            <div class="meal-card">
-                                <div class="meal-emoji">🍛</div>
-                                <div class="meal-details">
-                                    <div class="meal-title">Masala Oats Bowl</div>
-                                    <div class="meal-info">320 cal • 12g protein</div>
-                                </div>
-                            </div>
-                            <div class="meal-card">
-                                <div class="meal-emoji">🍗</div>
-                                <div class="meal-details">
-                                    <div class="meal-title">Chicken Tikka with Rice</div>
-                                    <div class="meal-info">580 cal • 35g protein</div>
-                                </div>
-                            </div>
-                            <div class="meal-card">
-                                <div class="meal-emoji">🥘</div>
-                                <div class="meal-details">
-                                    <div class="meal-title">Dal Tadka & Roti</div>
-                                    <div class="meal-info">420 cal • 18g protein</div>
-                                </div>
-                            </div>
-                            <div class="meal-card">
-                                <div class="meal-emoji">🍨</div>
-                                <div class="meal-details">
-                                    <div class="meal-title">Kheer (Small Bowl)</div>
-                                    <div class="meal-info">240 cal • 6g protein</div>
-                                </div>
-                            </div>
-                        </div>
+                        <img src="images/journey-planner.png" alt="Weekly Meal Plan">
                     </div>
                     <div class="step-number">2</div>
                     <h3>Get Your Weekly Plan</h3>
-                    <p>Receive structured, delicious meals ready to cook</p>
+                    <p>See your day-by-day meals with calories and macros</p>
                 </div>
                 <div class="step">
                     <div class="step-mockup">
-                        <div class="mockup-content">
-                            <div class="status-bar">
-                                <span>9:43</span>
-                                <span>🔋99%</span>
-                            </div>
-                            <div class="app-header">
-                                <span>Dal Tadka Recipe</span>
-                                <span>🥘</span>
-                            </div>
-                            <div class="recipe-image">
-                                🥘
-                            </div>
-                            <div class="recipe-info">
-                                <div class="recipe-title">Dal Tadka & Roti</div>
-                                <div class="recipe-stats">
-                                    <span class="recipe-stat">⏱️ 30 min</span>
-                                    <span class="recipe-stat">👥 2 servings</span>
-                                    <span class="recipe-stat">🔥 420 cal</span>
-                                </div>
-                                <div class="recipe-ingredients">
-                                    Toor dal, onions, tomatoes, ginger-garlic paste, cumin seeds, mustard seeds,
-                                    turmeric, red chili powder, garam masala, wheat flour, oil, salt
-                                </div>
-                            </div>
-                        </div>
+                        <img src="images/journey-recipe.png" alt="Recipe details with ingredients and instructions">
                     </div>
                     <div class="step-number">3</div>
                     <h3>View Recipe Details</h3>
-                    <p>Get step-by-step cooking instructions and ingredients</p>
+                    <p>Step-by-step cooking instructions and full ingredient list</p>
                 </div>
                 <div class="step">
                     <div class="step-mockup">
-                        <div class="mockup-content">
-                            <div class="status-bar">
-                                <span>9:44</span>
-                                <span>🔋98%</span>
-                            </div>
-                            <div class="app-header">
-                                <span>Progress</span>
-                                <span>📊</span>
-                            </div>
-                            <div class="progress-container">
-                                <div class="progress-label">Weekly Goal Progress</div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 75%;"></div>
-                                </div>
-                                <div class="progress-text">5 of 7 days completed</div>
-                            </div>
-                            <div class="progress-container">
-                                <div class="progress-label">Calories Today</div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 85%;"></div>
-                                </div>
-                                <div class="progress-text">1,405 / 1,650 calories</div>
-                            </div>
-                            <div class="progress-container">
-                                <div class="progress-label">Weight Loss Progress</div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 60%;"></div>
-                                </div>
-                                <div class="progress-text">3kg lost of 5kg goal</div>
-                            </div>
-                        </div>
+                        <img src="images/journey-ingredients.png" alt="Shopping list – auto-generated ingredients">
                     </div>
                     <div class="step-number">4</div>
-                    <h3>Track Progress</h3>
-                    <p>Monitor your goals and celebrate achievements</p>
+                    <h3>Your Shopping List</h3>
+                    <p>Auto-generated grocery list with quantities—shop once, cook all week</p>
                 </div>
-            </div>
-            <a href="#download-app" class="btn">Download Free — No Card Required</a>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing section">
-        <div class="container">
-            <h2>Simple Pricing That Saves You Time & Money</h2>
-            <p class="subtitle">You could spend hours planning… or just <strong>20 seconds generating</strong>.</p>
-            <div class="pricing-cards">
-                <div class="pricing-card featured">
-                    <div class="price-header">
-                        <h3>Start Your Journey</h3>
-                        <div class="price">
-                            <span style="font-size: 1.5rem;">Free meal plan for</span>
-                            <div
-                                style="font-size: 2.5rem; font-weight: 800; color: var(--primary-color); margin: 10px 0;">
-                                1 Week
-                            </div>
-                            <span style="font-size: 1.2rem; color: var(--text-light);">Then £7.99/month</span>
-                        </div>
+                <div class="step">
+                    <div class="step-mockup">
+                        <img src="images/journey-progress.png" alt="Progress – week-to-date macros">
                     </div>
-                    <ul class="price-features">
-                        <li>Complete week of personalized meals</li>
-                        <li>All cuisine types available</li>
-                        <li>Advanced nutrition tracking</li>
-                        <li>Shopping lists included</li>
-                        <li>Cancel anytime after trial</li>
-                    </ul>
-                    <a href="#download-app" class="btn">Download Free</a>
+                    <div class="step-number">5</div>
+                    <h3>Track Progress</h3>
+                    <p>Monitor week-to-date calories and macros</p>
                 </div>
             </div>
+            <a href="#download-app" class="btn">Join the tester list</a>
         </div>
     </section>
 
-    <!-- Download App Section -->
+    <!-- Download App Section / Join Testers -->
     <section class="download-section section" id="download-app">
         <div class="container">
             <div class="download-content">
-                <h2>Start Your Free Week Today</h2>
-                <p class="subtitle">Download GustoGoals and get your first personalized meal plan absolutely free</p>
+                <h2>Be First to Try GustoGoals</h2>
+                <p class="subtitle">We’re inviting a limited number of people to test the app before launch. Join the
+                    list and we’ll get you in.</p>
 
                 <div class="download-features">
                     <div class="feature-highlight">
@@ -1266,8 +1046,13 @@
 
                 <div class="cta-container">
                     <p class="cta-text">
-                        <strong>Free for 1 week</strong> • No credit card required • Cancel anytime
+                        <strong>How to join:</strong> Send us an email with your address and whether you use
+                        <strong>iOS</strong> or <strong>Android</strong>. We’ll add you to the testers list and reply
+                        with next steps.
                     </p>
+                    <a href="mailto:hello@gustogoals.com?subject=Join%20GustoGoals%20Testers&body=Hi%2C%0A%0AI'd%20like%20to%20join%20the%20GustoGoals%20tester%20list.%0A%0AEmail%3A%20%0APlatform%3A%20iOS%20or%20Android"
+                        class="btn btn-primary">Email us to join →</a>
+                    <!-- Download options (commented out for tester signup phase)
                     <div class="app-store-buttons">
                         <a href="https://apps.apple.com/app/gustogoals" class="app-store-btn" target="_blank">
                             <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1590969600&h=8e86e7f68ec6ed9565b8af6c2522b2e5"
@@ -1279,6 +1064,7 @@
                                 alt="Get it on Google Play">
                         </a>
                     </div>
+                    -->
                     <p class="alternative-cta">
                         Want to calculate your personalized nutrition goals first?
                         <a href="calorie-calculator.html" class="inline-link">Use our calculator →</a>
