@@ -1,0 +1,205 @@
+:root {
+  /* GUSTOGOALS BRAND BIBLE PALETTE */
+  --primary-color: #FF5722;      /* Deep Orange - High Energy/Appetite */
+  --secondary-color: #212121;    /* Almost Black - Premium Contrast */
+  --accent-color: #FFC107;       /* Amber - Highlights/Success Indicators */
+  --bg-color: #F5F5F5;           /* Light Grey - Clean Background */
+  --text-white: #FFFFFF;         /* Text on Dark Backgrounds */
+  --text-muted: #9E9E9E;
+  --font-main: 'Outfit', sans-serif;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  line-height: 1.6;
+  background-color: var(--bg-color);
+  color: var(--secondary-color);
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* HERO SECTION */
+.hero-section {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #212121 0%, #333333 100%);
+  color: var(--text-white);
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.subhead {
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin: 0 auto 30px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.cta-group {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.store-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 50px;
+  background: var(--secondary-color);
+  color: var(--text-white);
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: var(--transition-smooth);
+}
+
+.store-btn:hover {
+  background: var(--text-white);
+  color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.store-btn.ios {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.store-btn.ios:hover {
+  background: #ff7043;
+  border-color: #ff7043;
+}
+
+.trust-rating {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* COMPARISON SECTION */
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.card {
+  padding: 40px;
+  border-radius: 12px;
+  background: white;
+  transition: var(--transition-smooth);
+}
+
+.card h3 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.card ul {
+  list-style: none;
+}
+
+.card li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* HOW IT WORKS */
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.step {
+  text-align: center;
+}
+
+.circle-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+
+.step h4 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.step p {
+  color: var(--text-muted);
+}
+
+/* CRO-FOCUSED BASE CLASSES */
+.cta-primary {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  border-radius: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
+}
+
+.cta-primary:hover {
+  background-color: #ff7043;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 87, 34, 0.4);
+}
+
+.section-padding {
+  padding: 100px 0;
+}
+
+footer {
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+footer a {
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+footer a:hover {
+  color: var(--primary-color) !important;
+}
